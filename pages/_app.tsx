@@ -1,19 +1,25 @@
 import 'modern-css-reset'
+import { useRouter } from 'next/dist/client/router'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter()
+  const currentPageName = router.pathname.split('/')[1] || 'about'
+
   return (
     <>
       <div className="app">
         <nav className="nav">
           <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="icon" width={160} height={160} />
           <ul className="menu">
-            <li className="menu-item">ABOUT</li>
-            <li className="menu-item">EXPERIENCE</li>
-            <li className="menu-item">SKILLS</li>
-            <li className="menu-item selected">OUTPUTS</li>
-            <li className="menu-item">INTERSETS</li>
-            <li className="menu-item">CERTIFICATIONS</li>
+            {['about', 'skills', 'outputs', 'experience', 'certifications'].map(menu => (
+              <li key={menu} className="menu-item">
+                <Link href={`/${menu}`}>
+                  <a className={menu === currentPageName ? 'menu-link selected' : 'menu-link'}>{menu}</a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <main className="main">
@@ -46,11 +52,17 @@ function MyApp({ Component, pageProps }) {
                 text-align: center;
                 .menu-item {
                   height: 40px;
-                  color: rgba(255, 255, 255, 0.55);
                   font-weight: 800;
                   list-style: none;
-                  &.selected {
-                    color: #fff;
+                  .menu-link,
+                  .menu-link:visited {
+                    font-size: 0.9rem;
+                    color: rgba(255, 255, 255, 0.55);
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    &.selected {
+                      color: #fff;
+                    }
                   }
                 }
               }
