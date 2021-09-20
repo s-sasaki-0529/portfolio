@@ -17,13 +17,9 @@ export default function Experience() {
           <span className="company">{props.company}</span>
           <span className="period">{props.period}</span>
         </div>
-        <div className="summary">
+        <div className="summary" onClick={() => setIsShowDescription(!isShowDescription)}>
           <span className="body">{props.summary}</span>
-          <FontAwesomeIcon
-            className="toggleIcon"
-            icon={isShowDescription ? faCaretUp : faCaretDown}
-            onClick={() => setIsShowDescription(!isShowDescription)}
-          />
+          <FontAwesomeIcon className="toggleIcon" icon={isShowDescription ? faCaretUp : faCaretDown} />
         </div>
         <div className={isShowDescription ? 'description' : 'description collapsed'}>{props.children}</div>
         <style jsx lang="scss">{`
@@ -44,11 +40,9 @@ export default function Experience() {
             .summary {
               font-size: 1.1rem;
               color: rgb(108, 117, 125);
+              cursor: pointer;
               .body {
                 margin-right: 0.5em;
-              }
-              :global(.toggleIcon) {
-                cursor: pointer;
               }
             }
             .description {
