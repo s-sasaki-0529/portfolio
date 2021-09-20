@@ -4,7 +4,7 @@ WIP
 
 ## ポートフォリオのデザインについて
 
-ポートフォリオの大まかなデザインは Start Bootstrap の [resume](https://startbootstrap.com/) を模倣していますが、HTML/CSS の借用は行っていません。
+ポートフォリオの大まかなデザインは Start Bootstrap の [resume](https://startbootstrap.com/previews/resume) を模倣していますが、HTML/CSS の借用は行っていません
 
 ## 使用しているアイコン素材について
 
