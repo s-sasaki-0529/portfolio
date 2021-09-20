@@ -103,8 +103,11 @@ function MyApp({ Component, pageProps }) {
               display: none;
             }
             .main {
+              display: flex;
+              align-items: center;
               width: 100%;
               height: 100vh;
+              padding: 5rem 3rem 5rem 3rem;
             }
           }
           @media screen and (max-width: 920px) {
@@ -161,7 +164,7 @@ function MyApp({ Component, pageProps }) {
             }
             .main {
               width: 100vw;
-              height: 100%;
+              height: calc(100vh - 56px);
             }
           }
         }
