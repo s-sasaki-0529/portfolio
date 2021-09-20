@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   const Menu = () => (
     <>
       <ul className="menu">
-        {['about', 'skills', 'outputs', 'experience', 'certifications'].map(menu => (
+        {['about', 'skills', 'outputs', 'experience'].map(menu => (
           <li key={menu} className="menu-item">
             <Link href={`/${menu}`}>
               <a className={menu === currentPageName ? 'menu-link selected' : 'menu-link'}>{menu}</a>
