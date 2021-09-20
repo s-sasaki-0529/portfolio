@@ -2,8 +2,38 @@ import TwitterLogo from '../assets/twitter.svg'
 import ZennLogo from '../assets/zenn.svg'
 import GitHubLogo from '../assets/github.svg'
 import MediumLogo from '../assets/medium.svg'
+import { ReactNode } from 'react'
 
 export default function Home() {
+  const LinkIcon: React.FC<{ href: string; icon: ReactNode }> = props => (
+    <>
+      <a className="link" rel="noreferrer" target="_blank" href={props.href}>
+        {props.icon}
+      </a>
+      <style jsx lang="scss">{`
+        .link {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #495057;
+          width: 50px;
+          height: 50px;
+          margin-right: 24px;
+          border-radius: 50%;
+          cursor: pointer;
+          &:hover {
+            background-color: #bd5d38;
+          }
+          :global(svg) {
+            fill: #fff;
+            width: 50%;
+            height: 50%;
+          }
+        }
+      `}</style>
+    </>
+  )
+
   return (
     <div>
       <h1 className="name">SHINGO SASAKI</h1>
@@ -22,18 +52,10 @@ export default function Home() {
         </p>
       </div>
       <div className="links">
-        <a className="link" rel="noreferrer" target="_blank" href="https://twitter.com/s_sasaki_0529">
-          <TwitterLogo />
-        </a>
-        <a className="link" rel="noreferrer" target="_blank" href="https://github.com/s-sasaki-0529">
-          <GitHubLogo />
-        </a>
-        <a className="link" rel="noreferrer" target="_blank" href="https://zenn.dev/sa2knight">
-          <ZennLogo />
-        </a>
-        <a className="link" rel="noreferrer" target="_blank" href="https://medium.com/@shingo.sasaki">
-          <MediumLogo />
-        </a>
+        <LinkIcon href="https://twitter.com/s_sasaki_0529" icon={<TwitterLogo />} />
+        <LinkIcon href="https://github.com/s-sasaki-0529" icon={<GitHubLogo />} />
+        <LinkIcon href="https://zenn.dev/sa2knight" icon={<ZennLogo />} />
+        <LinkIcon href="https://medium.com/@shingo.sasaki" icon={<MediumLogo />} />
       </div>
       <style jsx lang="scss">{`
         .name {
@@ -58,25 +80,6 @@ export default function Home() {
         }
         .links {
           display: flex;
-          .link {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #495057;
-            width: 50px;
-            height: 50px;
-            margin-right: 24px;
-            border-radius: 50%;
-            cursor: pointer;
-            &:hover {
-              background-color: #bd5d38;
-            }
-            :global(svg) {
-              fill: #fff;
-              width: 50%;
-              height: 50%;
-            }
-          }
         }
       `}</style>
     </div>
