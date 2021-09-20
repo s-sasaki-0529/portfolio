@@ -263,6 +263,9 @@ export default function Experience() {
         .experience {
           width: 100%;
           height: 100%;
+          .title {
+            color: #343a40;
+          }
         }
       `}</style>
     </div>
