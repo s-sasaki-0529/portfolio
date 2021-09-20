@@ -10,7 +10,10 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const currentPageName = router.pathname.split('/')[1] || 'about'
   const [isShowSpMenu, setIsShowSpMenu] = useState(false)
-  router.events.on('routeChangeComplete', () => setIsShowSpMenu(false))
+
+  if (router.events) {
+    router.events.on('routeChangeComplete', () => setIsShowSpMenu(false))
+  }
 
   const Menu = () => (
     <>
