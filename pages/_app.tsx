@@ -107,6 +107,7 @@ function MyApp({ Component, pageProps }) {
               align-items: center;
               width: 100%;
               height: 100vh;
+              overflow: scroll;
               padding: 5rem 3rem 5rem 3rem;
             }
           }
@@ -164,7 +165,7 @@ function MyApp({ Component, pageProps }) {
             }
             .main {
               width: 100vw;
-              height: calc(100vh - 56px);
+              min-height: calc(100vh - 56px);
             }
           }
         }
