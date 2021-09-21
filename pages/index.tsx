@@ -2,6 +2,7 @@ import TwitterLogo from '../assets/twitter.svg'
 import ZennLogo from '../assets/zenn.svg'
 import GitHubLogo from '../assets/github.svg'
 import MediumLogo from '../assets/medium.svg'
+import SlideshareLogo from '../assets/slideshare.svg'
 import { ReactNode } from 'react'
 
 export default function Home() {
@@ -56,6 +57,7 @@ export default function Home() {
         <LinkIcon href="https://github.com/s-sasaki-0529" icon={<GitHubLogo />} />
         <LinkIcon href="https://zenn.dev/sa2knight" icon={<ZennLogo />} />
         <LinkIcon href="https://medium.com/@shingo.sasaki" icon={<MediumLogo />} />
+        <LinkIcon href="https://www.slideshare.net/shingosasaki3" icon={<SlideshareLogo />} />
       </div>
       <style jsx lang="scss">{`
         .name {
