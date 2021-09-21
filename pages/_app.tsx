@@ -107,7 +107,7 @@ function MyApp({ Component, pageProps }) {
               align-items: center;
               width: 100%;
               height: 100vh;
-              overflow: scroll;
+              overflow-y: auto;
               padding: 5rem 3rem 5rem 3rem;
             }
           }
