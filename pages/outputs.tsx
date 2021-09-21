@@ -1,10 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { GetStaticProps } from 'next'
+import React, { useState } from 'react'
 import RSSParser from 'rss-parser'
-import ZennLogo from '../assets/zenn.svg'
-import SlideshareLogo from '../assets/slideshare.svg'
-import MediumLogo from '../assets/medium.svg'
-import { ReactNode } from 'react'
 
 type RSSFeed = {
   zenn: RSSParser.Item[]
@@ -22,46 +19,88 @@ export const getStaticProps: GetStaticProps<RSSFeed> = async () => {
 }
 
 export default function Outputs(props: RSSFeed) {
-  const ToggleIcon: React.FC<{ active: boolean; icon: ReactNode }> = props => (
-    <>
-      <div className="icon">{props.icon}</div>
+  const [category, setCategory] = useState<'zenn' | 'medium' | 'slideshare'>('zenn')
+  const ZennOutputs = (props: { items: RSSFeed['zenn'] }) => (
+    <div className="root">
+      {props.items.map(item => (
+        <a key={item.guid} rel="noreferrer" target="_blank" href={item.link}>
+          <img alt="zenn_enclosure" src={item.enclosure.url} />
+        </a>
+      ))}
       <style jsx lang="scss">{`
-        .icon {
+        .root {
           display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: #495057;
-          width: 45px;
-          height: 2em;
-          cursor: pointer;
-          &:hover {
-            background-color: #bd5d38;
-          }
-          :global(svg) {
-            fill: #fff;
-            width: 50%;
-            height: 50%;
+          flex-wrap: wrap;
+          img {
+            width: 20em;
+            height: auto;
+            padding: 0.5em;
+            object-fit: scale-down;
           }
         }
       `}</style>
-    </>
+    </div>
   )
+  const MediumOutputs = (props: { items: RSSFeed['medium'] }) => (
+    <div className="root">
+      {props.items.map(item => (
+        <div key={item.guid} className="item">
+          <div className="date">{new Date(item.pubDate).toISOString().split('T')[0]}</div>
+          <a className="title" rel="noreferrer" target="_blank" href={item.link}>
+            {item.title}
+          </a>
+        </div>
+      ))}
+      <style jsx lang="scss">{`
+        .root {
+          .item {
+            display: flex;
+            margin-bottom: 1em;
+            font-size: 1em;
+            cursor: pointer;
+            .date {
+              margin-right: 1em;
+            }
+            .title {
+              text-decoration: underline;
+              &:visited {
+                color: rgb(0, 0, 238);
+              }
+            }
+          }
+        }
+      `}</style>
+    </div>
+  )
+
   return (
     <div className="root">
       <div className="header">
         <div className="title">OUTPUTS</div>
-        <div className="icons">
-          <ToggleIcon active={false} icon={<ZennLogo />} />
-          <ToggleIcon active={false} icon={<MediumLogo />} />
-          <ToggleIcon active={false} icon={<SlideshareLogo />} />
+        <div className="categories">
+          <span
+            className={category === 'zenn' ? 'category active' : 'category'}
+            onClick={() => setCategory('zenn')}
+          >
+            Zenn
+          </span>
+          <span
+            className={category === 'medium' ? 'category active' : 'category'}
+            onClick={() => setCategory('medium')}
+          >
+            Medium
+          </span>
+          <span
+            className={category === 'slideshare' ? 'category active' : 'category'}
+            onClick={() => setCategory('slideshare')}
+          >
+            Slideshare
+          </span>
         </div>
       </div>
-      <div className="images">
-        {props.zenn.map(zennItem => (
-          <a key={zennItem.guid} rel="noreferrer" target="_blank" href={zennItem.link}>
-            <img alt="zenn_enclosure" src={zennItem.enclosure.url} />
-          </a>
-        ))}
+      <div className="outputs">
+        {category === 'zenn' ? <ZennOutputs items={props.zenn} /> : null}
+        {category === 'medium' ? <MediumOutputs items={props.medium} /> : null}
       </div>
       <style jsx lang="scss">{`
         .root {
@@ -71,24 +110,21 @@ export default function Outputs(props: RSSFeed) {
           .header {
             display: flex;
             justify-content: start;
-            align-items: center;
+            align-items: baseline;
             margin-bottom: 4em;
             .title {
               margin-right: 0.5em;
               font-size: 2em;
             }
-            .icons {
-              display: flex;
-            }
-          }
-          .images {
-            display: flex;
-            flex-wrap: wrap;
-            img {
-              width: 20em;
-              height: auto;
-              padding: 0.5em;
-              object-fit: scale-down;
+            .categories {
+              .category {
+                margin-right: 0.5em;
+                cursor: pointer;
+                &.active {
+                  font-weight: 600;
+                  text-decoration: underline;
+                }
+              }
             }
           }
         }
