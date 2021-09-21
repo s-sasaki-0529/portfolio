@@ -3,9 +3,38 @@ import ZennLogo from '../assets/zenn.svg'
 import GitHubLogo from '../assets/github.svg'
 import MediumLogo from '../assets/medium.svg'
 import SlideshareLogo from '../assets/slideshare.svg'
-import CircleIcon from '../components/CircleIcon'
+import { ReactNode } from 'react'
 
 export default function Home() {
+  const LinkIcon: React.FC<{ href: string; icon: ReactNode }> = props => (
+    <>
+      <a className="link" rel="noreferrer" target="_blank" href={props.href}>
+        {props.icon}
+      </a>
+      <style jsx lang="scss">{`
+        .link {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #495057;
+          width: 50px;
+          height: 50px;
+          margin-right: 24px;
+          border-radius: 50%;
+          cursor: pointer;
+          &:hover {
+            background-color: #bd5d38;
+          }
+          :global(svg) {
+            fill: #fff;
+            width: 50%;
+            height: 50%;
+          }
+        }
+      `}</style>
+    </>
+  )
+
   return (
     <div>
       <h1 className="name">SHINGO SASAKI</h1>
@@ -24,11 +53,11 @@ export default function Home() {
         </p>
       </div>
       <div className="links">
-        <CircleIcon href="https://twitter.com/s_sasaki_0529" icon={<TwitterLogo />} />
-        <CircleIcon href="https://github.com/s-sasaki-0529" icon={<GitHubLogo />} />
-        <CircleIcon href="https://zenn.dev/sa2knight" icon={<ZennLogo />} />
-        <CircleIcon href="https://medium.com/@shingo.sasaki" icon={<MediumLogo />} />
-        <CircleIcon href="https://www.slideshare.net/shingosasaki3" icon={<SlideshareLogo />} />
+        <LinkIcon href="https://twitter.com/s_sasaki_0529" icon={<TwitterLogo />} />
+        <LinkIcon href="https://github.com/s-sasaki-0529" icon={<GitHubLogo />} />
+        <LinkIcon href="https://zenn.dev/sa2knight" icon={<ZennLogo />} />
+        <LinkIcon href="https://medium.com/@shingo.sasaki" icon={<MediumLogo />} />
+        <LinkIcon href="https://www.slideshare.net/shingosasaki3" icon={<SlideshareLogo />} />
       </div>
       <style jsx lang="scss">{`
         .name {
@@ -52,10 +81,7 @@ export default function Home() {
           }
         }
         .links {
-          display: grid;
-          grid-template-areas: 'a b c d e f';
-          justify-content: start;
-          column-gap: 1em;
+          display: flex;
         }
       `}</style>
     </div>
