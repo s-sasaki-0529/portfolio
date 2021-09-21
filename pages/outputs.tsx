@@ -2,6 +2,7 @@
 import { GetStaticProps } from 'next'
 import React, { useState } from 'react'
 import RSSParser from 'rss-parser'
+import Image from 'next/image'
 
 type RSSFeed = {
   zenn: RSSParser.Item[]
@@ -72,6 +73,47 @@ export default function Outputs(props: RSSFeed) {
       `}</style>
     </div>
   )
+  // TODO: 上下に黒い背景付けるだけでもましになるかも
+  // TODO: 関数切り出そう
+  const SlideShareOutputs = () => (
+    <div className="root">
+      <div className="items">
+        <a
+          className="item"
+          rel="noreferrer"
+          target="_blank"
+          href="https://www.slideshare.net/shingosasaki3/rails10-135067544"
+        >
+          <Image src="/slide01.png" alt="slide" width={300} height={180} objectFit="cover" />
+        </a>
+        <a
+          className="item"
+          rel="noreferrer"
+          target="_blank"
+          href="https://www.slideshare.net/shingosasaki3/teachmebiz-188542240"
+        >
+          <Image src="/slide02.png" alt="slide" width={300} height={180} objectFit="cover" />
+        </a>
+        <a
+          className="item"
+          rel="noreferrer"
+          target="_blank"
+          href="https://www.slideshare.net/shingosasaki3/vue-typescript"
+        >
+          <Image src="/slide03.png" alt="slide" width={300} height={180} objectFit="cover" />
+        </a>
+      </div>
+      <style jsx lang="scss">{`
+        .root {
+          .items {
+            :global(img) {
+              padding: 1em !important;
+            }
+          }
+        }
+      `}</style>
+    </div>
+  )
 
   return (
     <div className="root">
@@ -101,6 +143,7 @@ export default function Outputs(props: RSSFeed) {
       <div className="outputs">
         {category === 'zenn' ? <ZennOutputs items={props.zenn} /> : null}
         {category === 'medium' ? <MediumOutputs items={props.medium} /> : null}
+        {category === 'slideshare' ? <SlideShareOutputs /> : null}
       </div>
       <style jsx lang="scss">{`
         .root {
