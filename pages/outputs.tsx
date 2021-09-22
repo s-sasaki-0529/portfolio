@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps<RSSFeed> = async () => {
 }
 
 export default function Outputs(props: RSSFeed) {
-  const [category, setCategory] = useState<'zenn' | 'medium' | 'slideshare'>('zenn')
+  const [category, setCategory] = useState<'zenn' | 'medium' | 'slideshare'>('medium')
   const ZennOutputs = (props: { items: RSSFeed['zenn'] }) => (
     <div className="root">
       {props.items.map(item => (
@@ -94,16 +94,16 @@ export default function Outputs(props: RSSFeed) {
       <div className="root">
         <div className="items">
           <SlideShareImage
-            url="https://www.slideshare.net/shingosasaki3/rails10-135067544"
-            imagePath="/slide01.png"
+            url="https://www.slideshare.net/shingosasaki3/vue-typescript"
+            imagePath="/slide03.png"
           />
           <SlideShareImage
             url="https://www.slideshare.net/shingosasaki3/teachmebiz-188542240"
             imagePath="/slide02.png"
           />
           <SlideShareImage
-            url="https://www.slideshare.net/shingosasaki3/vue-typescript"
-            imagePath="/slide03.png"
+            url="https://www.slideshare.net/shingosasaki3/rails10-135067544"
+            imagePath="/slide01.png"
           />
         </div>
         <style jsx lang="scss">{`
@@ -123,16 +123,16 @@ export default function Outputs(props: RSSFeed) {
         <div className="title">OUTPUTS</div>
         <div className="categories">
           <span
-            className={category === 'zenn' ? 'category active' : 'category'}
-            onClick={() => setCategory('zenn')}
-          >
-            Zenn
-          </span>
-          <span
             className={category === 'medium' ? 'category active' : 'category'}
             onClick={() => setCategory('medium')}
           >
             Medium
+          </span>
+          <span
+            className={category === 'zenn' ? 'category active' : 'category'}
+            onClick={() => setCategory('zenn')}
+          >
+            Zenn
           </span>
           <span
             className={category === 'slideshare' ? 'category active' : 'category'}
@@ -143,8 +143,8 @@ export default function Outputs(props: RSSFeed) {
         </div>
       </div>
       <div className="outputs">
-        {category === 'zenn' ? <ZennOutputs items={props.zenn} /> : null}
         {category === 'medium' ? <MediumOutputs items={props.medium} /> : null}
+        {category === 'zenn' ? <ZennOutputs items={props.zenn} /> : null}
         {category === 'slideshare' ? <SlideShareOutputs /> : null}
       </div>
       <style jsx lang="scss">{`
