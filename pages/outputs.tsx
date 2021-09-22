@@ -73,47 +73,49 @@ export default function Outputs(props: RSSFeed) {
       `}</style>
     </div>
   )
-  // TODO: 上下に黒い背景付けるだけでもましになるかも
-  // TODO: 関数切り出そう
-  const SlideShareOutputs = () => (
-    <div className="root">
-      <div className="items">
-        <a
-          className="item"
-          rel="noreferrer"
-          target="_blank"
-          href="https://www.slideshare.net/shingosasaki3/rails10-135067544"
-        >
-          <Image src="/slide01.png" alt="slide" width={300} height={180} objectFit="cover" />
+  const SlideShareOutputs = () => {
+    const SlideShareImage = (props: { url: string; imagePath: string }) => (
+      <div className="root">
+        <a rel="noreferrer" target="_blank" href={props.url}>
+          <Image src={props.imagePath} alt="slide" width={320} height={180} objectFit="cover" />
         </a>
-        <a
-          className="item"
-          rel="noreferrer"
-          target="_blank"
-          href="https://www.slideshare.net/shingosasaki3/teachmebiz-188542240"
-        >
-          <Image src="/slide02.png" alt="slide" width={300} height={180} objectFit="cover" />
-        </a>
-        <a
-          className="item"
-          rel="noreferrer"
-          target="_blank"
-          href="https://www.slideshare.net/shingosasaki3/vue-typescript"
-        >
-          <Image src="/slide03.png" alt="slide" width={300} height={180} objectFit="cover" />
-        </a>
-      </div>
-      <style jsx lang="scss">{`
-        .root {
-          .items {
+        <style jsx lang="scss">{`
+          .root {
+            padding: 1em;
             :global(img) {
-              padding: 1em !important;
+              background-color: rgba(0, 0, 0, 0.5);
+              padding: 0.5em 0 0.5em 0 !important;
             }
           }
-        }
-      `}</style>
-    </div>
-  )
+        `}</style>
+      </div>
+    )
+    return (
+      <div className="root">
+        <div className="items">
+          <SlideShareImage
+            url="https://www.slideshare.net/shingosasaki3/rails10-135067544"
+            imagePath="/slide01.png"
+          />
+          <SlideShareImage
+            url="https://www.slideshare.net/shingosasaki3/teachmebiz-188542240"
+            imagePath="/slide02.png"
+          />
+          <SlideShareImage
+            url="https://www.slideshare.net/shingosasaki3/vue-typescript"
+            imagePath="/slide03.png"
+          />
+        </div>
+        <style jsx lang="scss">{`
+          .root {
+            .items {
+              display: flex;
+            }
+          }
+        `}</style>
+      </div>
+    )
+  }
 
   return (
     <div className="root">
