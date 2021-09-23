@@ -118,6 +118,10 @@ function MyApp({ Component, pageProps }) {
               display: none;
             }
             .sp-nav {
+              position: fixed;
+              left: 0;
+              right: 0;
+              top: 0;
               .header {
                 display: flex;
                 justify-content: space-between;
@@ -165,6 +169,7 @@ function MyApp({ Component, pageProps }) {
             }
             .main {
               width: 100vw;
+              margin-top: 56px;
               font-size: calc(0.5rem + 1.5vw);
               padding: 2em;
               min-height: calc(100vh - 56px);
