@@ -28,6 +28,9 @@ export default function Experience() {
             .header {
               display: flex;
               justify-content: space-between;
+              @media screen and (max-width: 920px) {
+                flex-direction: column;
+              }
               .company {
                 font-size: 1.5rem;
                 font-weight: 600;
@@ -226,7 +229,7 @@ export default function Experience() {
       </ExperienceBlock>
 
       <ExperienceBlock
-        company="インターネットサービスプロバイダ"
+        company="大手ISP"
         period="2015/04 ~ 2016/09"
         summary="新卒入社後、Web系LMSの設計、開発を主に経験"
       >
