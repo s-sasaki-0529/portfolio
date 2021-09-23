@@ -55,6 +55,12 @@ export default function Skills() {
               width: 6em;
               height: 6em;
             }
+            @media screen and (max-width: 920px) {
+              :global(svg) {
+                width: 15vw;
+                height: 15vw;
+              }
+            }
           }
         `}</style>
       </div>
@@ -88,6 +94,10 @@ export default function Skills() {
           width: 100%;
           .title {
             margin-bottom: 2em;
+          }
+          .primary,
+          .secondary {
+            text-decoration: underline;
           }
           .icons {
             display: flex;
