@@ -165,6 +165,8 @@ function MyApp({ Component, pageProps }) {
             }
             .main {
               width: 100vw;
+              font-size: calc(0.5rem + 1.5vw);
+              padding: 2em;
               min-height: calc(100vh - 56px);
             }
           }
