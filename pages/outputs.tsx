@@ -38,6 +38,9 @@ export default function Outputs(props: RSSFeed) {
             padding: 0.5em;
             object-fit: scale-down;
           }
+          @media screen and (max-width: 920px) {
+            justify-content: center;
+          }
         }
       `}</style>
     </div>
@@ -68,6 +71,11 @@ export default function Outputs(props: RSSFeed) {
                 color: rgb(0, 0, 238);
               }
             }
+            @media screen and (max-width: 920px) {
+              .date {
+                display: none;
+              }
+            }
           }
         }
       `}</style>
@@ -77,7 +85,7 @@ export default function Outputs(props: RSSFeed) {
     const SlideShareImage = (props: { url: string; imagePath: string }) => (
       <div className="root">
         <a rel="noreferrer" target="_blank" href={props.url}>
-          <Image src={props.imagePath} alt="slide" width={320} height={180} objectFit="cover" />
+          <img src={props.imagePath} alt="slide" />
         </a>
         <style jsx lang="scss">{`
           .root {
@@ -85,6 +93,14 @@ export default function Outputs(props: RSSFeed) {
             :global(img) {
               background-color: rgba(0, 0, 0, 0.5);
               padding: 0.5em 0 0.5em 0 !important;
+              @media screen and (min-width: 921px) {
+                width: 320px;
+                height: 180px;
+              }
+              @media screen and (max-width: 920px) {
+                width: 100vw;
+                height: auto;
+              }
             }
           }
         `}</style>
@@ -109,7 +125,9 @@ export default function Outputs(props: RSSFeed) {
         <style jsx lang="scss">{`
           .root {
             .items {
-              display: flex;
+              @media screen and (min-width: 921px) {
+                display: flex;
+              }
             }
           }
         `}</style>
