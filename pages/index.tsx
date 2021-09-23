@@ -17,7 +17,7 @@ export default function Home() {
           justify-content: center;
           align-items: center;
           background-color: #495057;
-          width: 4em;
+          width: 3em;
           height: 3em;
           margin-right: 24px;
           border-radius: 50%;
