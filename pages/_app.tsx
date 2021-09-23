@@ -147,7 +147,6 @@ function MyApp({ Component, pageProps }) {
                   border-radius: 0.25em;
                   cursor: pointer;
                   padding: 0;
-                  transition: box-shadow 0.15s ease-in-out;
                   :global(svg) {
                     color: rgba(255, 255, 255, 0.55);
                   }
@@ -158,9 +157,9 @@ function MyApp({ Component, pageProps }) {
                 top: 56px;
                 padding: 0 16px 0 16px;
                 width: 100%;
-                height: 200px;
+                height: 160px;
                 background-color: rgb(189, 93, 56);
-                transition: height 0.4s;
+                transition: height 0.1s;
                 &.collapsed {
                   height: 0;
                   overflow: hidden;
