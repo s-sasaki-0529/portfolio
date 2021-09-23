@@ -3,6 +3,7 @@ import ZennLogo from '../assets/zenn.svg'
 import GitHubLogo from '../assets/github.svg'
 import MediumLogo from '../assets/medium.svg'
 import SlideshareLogo from '../assets/slideshare.svg'
+import Image from 'next/image'
 import { ReactNode } from 'react'
 
 export default function Home() {
@@ -37,7 +38,10 @@ export default function Home() {
 
   return (
     <div>
-      <h1 className="name">SHINGO SASAKI</h1>
+      <div className="title">
+        <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="mobile-icon" width={80} height={80} />
+        <h1 className="name">SHINGO SASAKI</h1>
+      </div>
       <div className="info">
         <span className="profile">birth in 1992, live in Saitama Japan, </span>
         <span className="mail">shingo.sasaki.0529@gmail.com</span>
@@ -60,10 +64,12 @@ export default function Home() {
         <LinkIcon href="https://www.slideshare.net/shingosasaki3" icon={<SlideshareLogo />} />
       </div>
       <style jsx lang="scss">{`
-        .name {
-          color: #343a40;
-          font-size: 4em;
-          line-height: 1em;
+        .title {
+          .name {
+            color: #343a40;
+            font-size: 4em;
+            line-height: 1em;
+          }
         }
         .info {
           font-size: 1.5em;
@@ -82,6 +88,32 @@ export default function Home() {
         }
         .links {
           display: flex;
+        }
+
+        @media screen and (min-width: 921px) {
+          .title {
+            :global(.mobile-icon) {
+              display: none !important;
+            }
+          }
+        }
+        @media screen and (max-width: 920px) {
+          .title {
+            display: flex;
+            align-items: center;
+            :global(.mobile-icon) {
+              display: block !important;
+              border: 0.5rem solid rgba(255, 255, 255, 0.2) !important;
+              border-radius: 50%;
+            }
+            .name {
+              font-size: 7vw;
+            }
+          }
+          .info {
+            text-align: right;
+            font-size: 4vw;
+          }
         }
       `}</style>
     </div>
