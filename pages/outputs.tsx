@@ -15,7 +15,8 @@ export const getStaticProps: GetStaticProps<RSSFeed> = async () => {
   const medium = await rssParser.parseURL('https://medium.com/@shingo.sasaki/feed').then(feed => feed.items)
 
   return {
-    props: { zenn, medium }
+    props: { zenn, medium },
+    revalidate: 300
   }
 }
 
