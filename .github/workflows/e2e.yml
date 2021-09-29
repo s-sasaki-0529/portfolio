@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install Japanese Fonts
+        run: sudo apt install fonts-noto
       - name: Start App
         run: |
           yarn install
