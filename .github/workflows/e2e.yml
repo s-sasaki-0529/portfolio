@@ -1,0 +1,26 @@
+name: E2E Test
+on:
+  push:
+    branches:
+      - develop/*
+jobs:
+  cypress-run:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Start App
+        run: |
+          yarn install
+          yarn build
+          yarn start &
+      - name: Run Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          wait-on: "http://localhost:3000"
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: Cypress E2E Videos
+          path: cypress/videos
