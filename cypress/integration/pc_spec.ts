@@ -2,7 +2,7 @@ describe('PCビュー', () => {
   beforeEach(() => cy.viewport(1280, 720))
 
   describe('メインメニュー', () => {
-    beforeEach(() => cy.visit('/'))
+    beforeEach(() => cy.visit('/').wait(100))
 
     it('4種類のメニューを押下するとそれぞれのページにリンクする', () => {
       cy.contains('skills').click()
@@ -24,7 +24,7 @@ describe('PCビュー', () => {
   })
 
   describe('outputs ページ', () => {
-    beforeEach(() => cy.visit('/outputs'))
+    beforeEach(() => cy.visit('/outputs').wait(100))
     it('カテゴリをクリックすることで切り替えることができる', () => {
       cy.get('.medium-outputs')
 
@@ -43,7 +43,6 @@ describe('PCビュー', () => {
   })
 
   describe('experience ページ', () => {
-    // FIXME: React のアタッチを待機してるけど、自動待機に定評のある Cypress でこれいる？
     beforeEach(() => cy.visit('/experience').wait(100))
 
     it('各職歴の詳細を開閉できる', () => {

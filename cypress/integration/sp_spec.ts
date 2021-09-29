@@ -2,7 +2,7 @@ describe('SPビュー', () => {
   beforeEach(() => cy.viewport(375, 812))
 
   describe('メインメニュー', () => {
-    beforeEach(() => cy.visit('/').wait(50))
+    beforeEach(() => cy.visit('/').wait(100))
 
     it('ハンバーガーメニューの開閉してそれぞれのページにリンクできる', () => {
       cy.get('.sp-nav .hamburger').click()
