@@ -4,7 +4,7 @@ describe('PCビュー', () => {
   describe('メインメニュー', () => {
     beforeEach(() => {
       cy.visit('/')
-      cy.get('.pc-nav .icon').should('be.visible').wait(500) // アイコンの描画が遅いので
+      cy.get('.pc-nav .icon').should('be.visible').wait(1000) // アイコンの描画が遅いので
     })
 
     it('4種類のメニューを押下するとそれぞれのページにリンクする', () => {
