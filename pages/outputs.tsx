@@ -23,14 +23,14 @@ export const getStaticProps: GetStaticProps<RSSFeed> = async () => {
 export default function Outputs(props: RSSFeed) {
   const [category, setCategory] = useState<'zenn' | 'medium' | 'slideshare'>('medium')
   const ZennOutputs = (props: { items: RSSFeed['zenn'] }) => (
-    <div className="root">
+    <div className="zenn-outputs">
       {props.items.map(item => (
         <a key={item.guid} rel="noreferrer" target="_blank" href={item.link}>
           <img alt="zenn_enclosure" src={item.enclosure.url} />
         </a>
       ))}
       <style jsx lang="scss">{`
-        .root {
+        .zenn-outputs {
           display: flex;
           flex-wrap: wrap;
           img {
@@ -47,7 +47,7 @@ export default function Outputs(props: RSSFeed) {
     </div>
   )
   const MediumOutputs = (props: { items: RSSFeed['medium'] }) => (
-    <div className="root">
+    <div className="medium-outputs">
       {props.items.map(item => (
         <div key={item.guid} className="item">
           <div className="date">{new Date(item.pubDate).toISOString().split('T')[0]}</div>
@@ -57,7 +57,7 @@ export default function Outputs(props: RSSFeed) {
         </div>
       ))}
       <style jsx lang="scss">{`
-        .root {
+        .medium-outputs {
           .item {
             display: flex;
             margin-bottom: 1em;
@@ -84,12 +84,12 @@ export default function Outputs(props: RSSFeed) {
   )
   const SlideShareOutputs = () => {
     const SlideShareImage = (props: { url: string; imagePath: string }) => (
-      <div className="root">
+      <div className="slideshare-outputs">
         <a rel="noreferrer" target="_blank" href={props.url}>
           <img src={props.imagePath} alt="slide" />
         </a>
         <style jsx lang="scss">{`
-          .root {
+          .slideshare-outputs {
             padding: 1em;
             :global(img) {
               background-color: rgba(0, 0, 0, 0.5);

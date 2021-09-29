@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 export default function Experience() {
   type Experience = {
+    className: string
     company: string
     period: string
     summary: string
@@ -12,7 +13,7 @@ export default function Experience() {
     const [isShowDescription, setIsShowDescription] = useState(false)
 
     return (
-      <div className="root">
+      <div className={`experience-block ${props.className}`}>
         <div className="header">
           <span className="company">{props.company}</span>
           <span className="period">{props.period}</span>
@@ -23,7 +24,7 @@ export default function Experience() {
         </div>
         <div className={isShowDescription ? 'description' : 'description collapsed'}>{props.children}</div>
         <style jsx lang="scss">{`
-          .root {
+          .experience-block {
             margin: 4rem 0 4rem 0;
             .header {
               display: flex;
@@ -65,6 +66,7 @@ export default function Experience() {
     <div className="experience">
       <h1 className="title">EXPERIENCE</h1>
       <ExperienceBlock
+        className="saas"
         company="BtoB SaaS ベンチャー"
         period="2018/08 ~"
         summary="自社開発Webアプリケーション開発のリード"
@@ -142,6 +144,7 @@ export default function Experience() {
       </ExperienceBlock>
 
       <ExperienceBlock
+        className="ses"
         company="受託開発及びSES"
         period="2016/10 ~ 2018/07"
         summary="Webサービスを中心に、幅広い技術の受託開発を経験(SES での客先常駐を含む)"
@@ -229,6 +232,7 @@ export default function Experience() {
       </ExperienceBlock>
 
       <ExperienceBlock
+        className="isp"
         company="大手ISP"
         period="2015/04 ~ 2016/09"
         summary="新卒入社後、Web系LMSの設計、開発を主に経験"
