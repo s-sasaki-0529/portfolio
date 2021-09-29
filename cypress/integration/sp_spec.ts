@@ -1,4 +1,4 @@
-describe('PCビュー', () => {
+describe('SPビュー', () => {
   beforeEach(() => cy.viewport(375, 812))
 
   describe('メインメニュー', () => {
