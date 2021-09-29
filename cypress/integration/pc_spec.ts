@@ -33,11 +33,11 @@ describe('PCビュー', () => {
 
       cy.get('.categories').contains('Zenn').click()
       cy.get('.zenn-outputs')
-      cy.screenshot()
+      cy.wait(1000).screenshot()
 
       cy.get('.categories').contains('Slideshare').click()
       cy.get('.slideshare-outputs')
-      cy.screenshot()
+      cy.wait(1000).screenshot()
 
       cy.get('.categories').contains('Medium').click()
       cy.get('.medium-outputs')
