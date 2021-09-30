@@ -61,7 +61,7 @@ export default function Outputs(props: RSSFeed) {
           .item {
             display: flex;
             margin-bottom: 1em;
-            font-size: 1em;
+            font-size: 1rem;
             cursor: pointer;
             .date {
               margin-right: 1em;
@@ -178,7 +178,7 @@ export default function Outputs(props: RSSFeed) {
             margin-bottom: 4em;
             .title {
               margin-right: 0.5em;
-              font-size: 2em;
+              font-size: 2rem;
             }
             .categories {
               .category {

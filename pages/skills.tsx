@@ -47,7 +47,7 @@ export default function Skills() {
               padding-bottom: 0;
             }
             .tooltip {
-              font-size: 0.75em;
+              font-size: 0.75rem;
               font-weight: 600;
               text-align: center;
             }

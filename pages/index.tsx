@@ -67,12 +67,11 @@ export default function Home() {
         .title {
           .name {
             color: #343a40;
-            font-size: 4em;
-            line-height: 1em;
+            font-size: 4rem;
           }
         }
         .info {
-          font-size: 1.5em;
+          font-size: 1.5rem;
           font-weight: 400;
           margin-bottom: 50px;
           color: #6c757d;
