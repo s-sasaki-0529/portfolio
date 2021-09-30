@@ -38,4 +38,7 @@ cypress/results/*
 cypress/reports/*
 cypress/screenshots/*
 cypress/videos/*
-cypress/downloads/*
+cypress/downloads/*.reg
+
+# reg-suit
+.reg

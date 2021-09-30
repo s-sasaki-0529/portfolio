@@ -1,22 +1,29 @@
 name: E2E Test
 on: push
 jobs:
-  cypress-run:
+  e2e-and-vrt:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install Japanese Fonts
         run: sudo apt install fonts-noto
+      - run: yarn install
       - name: Start App
         run: |
-          yarn install
           yarn build
           yarn start &
       - name: Run Cypress
         uses: cypress-io/github-action@v2
         with:
           wait-on: "http://localhost:3000"
+      - name: Run reg-suit
+        env:
+          AWS_DEFAULT_REGION: ap-northeast-1
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID_FOR_REG_SUIT}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY_FOR_REG_SUIT}}
+        run: |
+          yarn reg-suit run
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         if: always()
