@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }) {
             list-style: none;
             .menu-link,
             .menu-link:visited {
-              font-size: 0.9rem;
+              font-size: 1.2rem;
               color: rgba(255, 255, 255, 0.55);
               text-transform: uppercase;
               text-decoration: none;
