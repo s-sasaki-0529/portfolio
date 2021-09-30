@@ -1,0 +1,14 @@
+{
+  "core": {
+    "actualDir": "cypress/screenshots",
+    "workingDir": ".reg"
+  },
+  "plugins": {
+    "reg-publish-s3-plugin": {
+      "bucketName": "shingo-sasaki-portfolio-reg-suit"
+    },
+    "reg-notify-github-plugin": {
+      "clientId": "MzGwMDAzMDQw0y/ILypJy8/JzNc3tLQwNDMzNtEv1i1OLE7MztQ1MDWyBAA="
+    }
+  }
+}
