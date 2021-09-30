@@ -8,9 +8,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Install Japanese Fonts
         run: sudo apt install fonts-noto
+      - run: yarn install
       - name: Start App
         run: |
-          yarn install
           yarn build
           yarn start &
       - name: Run Cypress
