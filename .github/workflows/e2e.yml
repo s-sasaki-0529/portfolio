@@ -1,7 +1,7 @@
 name: E2E Test
 on: push
 jobs:
-  cypress-run:
+  e2e-and-vrt:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
