@@ -17,17 +17,17 @@ export default function Home() {
           display: flex;
           justify-content: center;
           align-items: center;
-          background-color: #495057;
+          background-color: rgb(73, 80, 87);
           width: 3em;
           height: 3em;
           margin-right: 24px;
           border-radius: 50%;
           cursor: pointer;
           &:hover {
-            background-color: #bd5d38;
+            background-color: rgb(189, 93, 56);
           }
           :global(svg) {
-            fill: #fff;
+            fill: rgb(255, 255, 255);
             width: 50%;
             height: 50%;
           }
@@ -66,7 +66,7 @@ export default function Home() {
       <style jsx lang="scss">{`
         .title {
           .name {
-            color: #343a40;
+            color: rgb(52, 58, 64);
             font-size: 4rem;
           }
         }
@@ -74,9 +74,9 @@ export default function Home() {
           font-size: 1.5rem;
           font-weight: 400;
           margin-bottom: 50px;
-          color: #6c757d;
+          color: rgb(108, 117, 125);
           .mail {
-            color: #bd5d38;
+            color: rgb(189, 93, 56);
           }
         }
         .description {

@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }) {
               text-transform: uppercase;
               text-decoration: none;
               &.selected {
-                color: #fff;
+                color: rgb(255, 255, 255);
               }
             }
           }

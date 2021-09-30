@@ -170,7 +170,7 @@ export default function Outputs(props: RSSFeed) {
         .root {
           width: 100%;
           height: 100%;
-          color: #343a40;
+          color: rgb(52, 58, 64);
           .header {
             display: flex;
             justify-content: start;

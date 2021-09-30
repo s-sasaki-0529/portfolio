@@ -90,7 +90,7 @@ export default function Skills() {
       </div>
       <style jsx lang="scss">{`
         .root {
-          color: #343a40;
+          color: rgb(52, 58, 64);
           width: 100%;
           .title {
             margin-bottom: 2em;

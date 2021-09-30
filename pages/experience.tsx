@@ -35,7 +35,7 @@ export default function Experience() {
               .company {
                 font-size: 1.5rem;
                 font-weight: 600;
-                color: #343a40;
+                color: rgb(52, 58, 64);
               }
               .period {
                 color: rgb(189, 93, 56);
@@ -265,7 +265,7 @@ export default function Experience() {
           width: 100%;
           height: 100%;
           .title {
-            color: #343a40;
+            color: rgb(52, 58, 64);
           }
         }
       `}</style>
