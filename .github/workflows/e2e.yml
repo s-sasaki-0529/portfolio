@@ -23,7 +23,13 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID_FOR_REG_SUIT}}
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY_FOR_REG_SUIT}}
         run: |
-          yarn reg-suit run
+          export GITHUB_BRANCH=${GITHUB_REF#refs/heads/}
+          if [ "$GITHUB_BRANCH" = "master" ]; then
+            yarn reg-suit compare
+            yarn reg-suit publish
+          else
+            yarn reg-suit run
+          fi
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         if: always()
