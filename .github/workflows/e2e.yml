@@ -17,6 +17,14 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           wait-on: "http://localhost:3000"
+      - name: Run reg-suit
+        env:
+          AWS_DEFAULT_REGION: ap-northeast-1
+          AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID_FOR_REG_SUIT}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY_FOR_REG_SUIT}}
+        run: |
+          yarn reg-suit compare
+          yarn reg-suit publish
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         if: always()
