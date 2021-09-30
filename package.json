@@ -27,6 +27,10 @@
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
     "prettier": "^2.4.1",
+    "reg-keygen-git-hash-plugin": "^0.10.16",
+    "reg-notify-github-plugin": "^0.10.16",
+    "reg-publish-s3-plugin": "^0.10.16",
+    "reg-suit": "^0.10.16",
     "sass": "^1.41.1",
     "typescript": "^4.4.3"
   },
