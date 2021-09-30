@@ -4,6 +4,7 @@
     "workingDir": ".reg"
   },
   "plugins": {
+    "reg-keygen-git-hash-plugin": {},
     "reg-publish-s3-plugin": {
       "bucketName": "shingo-sasaki-portfolio-reg-suit"
     },
