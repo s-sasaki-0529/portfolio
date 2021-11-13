@@ -95,12 +95,13 @@ export default function Outputs(props: RSSFeed) {
               background-color: rgba(0, 0, 0, 0.5);
               padding: 0.5em 0 0.5em 0 !important;
               @media screen and (min-width: 921px) {
-                width: 320px;
-                height: 180px;
+                width: 540px;
+                height: auto;
               }
               @media screen and (max-width: 920px) {
-                width: 100vw;
+                width: 80vw;
                 height: auto;
+                margin: auto;
               }
             }
           }
