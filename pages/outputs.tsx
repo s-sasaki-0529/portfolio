@@ -111,6 +111,10 @@ export default function Outputs(props: RSSFeed) {
       <div className="root">
         <div className="items">
           <SlideShareImage
+            url="https://www.slideshare.net/shingosasaki3/6-typescript"
+            imagePath="/slide04.png"
+          />
+          <SlideShareImage
             url="https://www.slideshare.net/shingosasaki3/vue-typescript"
             imagePath="/slide03.png"
           />
