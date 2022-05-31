@@ -49,8 +49,7 @@ export default function Home() {
       <div className="description">
         <p className="paragraph">Webフロントエンドを主戦場としたWeb系プログラマ。</p>
         <p className="paragraph">
-          現在は BtoB SaaS にて、主に Vue.js と Ruby on Rails を用いた
-          Webアプリケーションの開発、運用を行っています。
+          現在は BtoB SaaS にて、主に Vue.js と Ruby on Rails を用いた Webアプリケーションの開発、運用を行っています。
         </p>
       </div>
       <div className="links">
@@ -58,11 +57,7 @@ export default function Home() {
         <LinkIcon title="GitHub" href="https://github.com/s-sasaki-0529" icon={<GitHubLogo />} />
         <LinkIcon title="Zenn" href="https://zenn.dev/sa2knight" icon={<ZennLogo />} />
         <LinkIcon title="Medium" href="https://medium.com/@shingo.sasaki" icon={<MediumLogo />} />
-        <LinkIcon
-          title="Slideshare"
-          href="https://www.slideshare.net/shingosasaki3"
-          icon={<SlideshareLogo />}
-        />
+        <LinkIcon title="Slideshare" href="https://www.slideshare.net/shingosasaki3" icon={<SlideshareLogo />} />
       </div>
       <style jsx lang="scss">{`
         .title {

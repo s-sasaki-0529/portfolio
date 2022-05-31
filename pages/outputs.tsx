@@ -111,22 +111,13 @@ export default function Outputs(props: RSSFeed) {
     return (
       <div className="root">
         <div className="items">
-          <SlideShareImage
-            url="https://www.slideshare.net/shingosasaki3/6-typescript"
-            imagePath="/slide04.png"
-          />
-          <SlideShareImage
-            url="https://www.slideshare.net/shingosasaki3/vue-typescript"
-            imagePath="/slide03.png"
-          />
+          <SlideShareImage url="https://www.slideshare.net/shingosasaki3/6-typescript" imagePath="/slide04.png" />
+          <SlideShareImage url="https://www.slideshare.net/shingosasaki3/vue-typescript" imagePath="/slide03.png" />
           <SlideShareImage
             url="https://www.slideshare.net/shingosasaki3/teachmebiz-188542240"
             imagePath="/slide02.png"
           />
-          <SlideShareImage
-            url="https://www.slideshare.net/shingosasaki3/rails10-135067544"
-            imagePath="/slide01.png"
-          />
+          <SlideShareImage url="https://www.slideshare.net/shingosasaki3/rails10-135067544" imagePath="/slide01.png" />
         </div>
         <style jsx lang="scss">{`
           .root {
@@ -152,10 +143,7 @@ export default function Outputs(props: RSSFeed) {
           >
             Medium
           </span>
-          <span
-            className={category === 'zenn' ? 'category active' : 'category'}
-            onClick={() => setCategory('zenn')}
-          >
+          <span className={category === 'zenn' ? 'category active' : 'category'} onClick={() => setCategory('zenn')}>
             Zenn
           </span>
           <span
