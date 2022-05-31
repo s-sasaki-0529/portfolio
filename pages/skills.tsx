@@ -70,6 +70,7 @@ export default function Skills() {
   return (
     <div className="root">
       <h1 className="title">SKILLS</h1>
+      <p>Webフロントエンドの技術選定、開発基盤整備、アーキテクチャリング、テスト自動化などを得意とする</p>
       <h2 className="primary">PRIMARY</h2>
       <div className="icons">
         <SkillLogo name="vue.js" href="https://jp.vuejs.org/index.html" logo={<VueLogo />} />
@@ -92,11 +93,9 @@ export default function Skills() {
         .root {
           color: rgb(52, 58, 64);
           width: 100%;
-          .title {
-            margin-bottom: 2em;
-          }
           .primary,
           .secondary {
+            margin-top: 2em;
             text-decoration: underline;
           }
           .icons {
