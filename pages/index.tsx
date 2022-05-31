@@ -7,9 +7,9 @@ import Image from 'next/image'
 import { ReactNode } from 'react'
 
 export default function Home() {
-  const LinkIcon: React.FC<{ href: string; icon: ReactNode }> = props => (
+  const LinkIcon: React.FC<{ title: string; href: string; icon: ReactNode }> = props => (
     <>
-      <a className="link" rel="noreferrer" target="_blank" href={props.href}>
+      <a className="link" rel="noreferrer" target="_blank" href={props.href} title={props.title}>
         {props.icon}
       </a>
       <style jsx lang="scss">{`
@@ -54,11 +54,15 @@ export default function Home() {
         </p>
       </div>
       <div className="links">
-        <LinkIcon href="https://twitter.com/s_sasaki_0529" icon={<TwitterLogo />} />
-        <LinkIcon href="https://github.com/s-sasaki-0529" icon={<GitHubLogo />} />
-        <LinkIcon href="https://zenn.dev/sa2knight" icon={<ZennLogo />} />
-        <LinkIcon href="https://medium.com/@shingo.sasaki" icon={<MediumLogo />} />
-        <LinkIcon href="https://www.slideshare.net/shingosasaki3" icon={<SlideshareLogo />} />
+        <LinkIcon title="Twitter" href="https://twitter.com/s_sasaki_0529" icon={<TwitterLogo />} />
+        <LinkIcon title="GitHub" href="https://github.com/s-sasaki-0529" icon={<GitHubLogo />} />
+        <LinkIcon title="Zenn" href="https://zenn.dev/sa2knight" icon={<ZennLogo />} />
+        <LinkIcon title="Medium" href="https://medium.com/@shingo.sasaki" icon={<MediumLogo />} />
+        <LinkIcon
+          title="Slideshare"
+          href="https://www.slideshare.net/shingosasaki3"
+          icon={<SlideshareLogo />}
+        />
       </div>
       <style jsx lang="scss">{`
         .title {
