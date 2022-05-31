@@ -47,13 +47,10 @@ export default function Home() {
         <span className="mail">shingo.sasaki.0529@gmail.com</span>
       </div>
       <div className="description">
+        <p className="paragraph">Webフロントエンドを主戦場としたWeb系プログラマ。</p>
         <p className="paragraph">
           現在は BtoB SaaS にて、主に Vue.js と Ruby on Rails を用いた
           Webアプリケーションの開発、運用を行っています。
-        </p>
-        <p className="paragraph">
-          現職に対して満足しているため、積極的な転職活動を行うつもりはありませんが、
-          将来的な転職に備えた下準備は進めるつもりです。
         </p>
       </div>
       <div className="links">
