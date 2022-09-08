@@ -40,7 +40,8 @@ export default function Home() {
     <div>
       <div className="title">
         <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="mobile-icon" width={80} height={80} />
-        <h1 className="name">SHINGO SASAKI</h1>
+        <h1 className="name">笹木信吾</h1>
+        <h2 className="name">SHINGO SASAKI</h2>
       </div>
       <div className="info">
         <span className="profile">birth in 1992, live in Saitama Japan, </span>
@@ -63,7 +64,7 @@ export default function Home() {
         .title {
           .name {
             color: rgb(52, 58, 64);
-            font-size: 4rem;
+            font-size: 3rem;
           }
         }
         .info {
