@@ -40,7 +40,7 @@ export default function Home() {
     <div>
       <div className="title">
         <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="mobile-icon" width={80} height={80} />
-        <h1 className="name">笹木信吾</h1>
+        <h1 className="name">笹木 信吾</h1>
         <h2 className="name sub">SHINGO SASAKI</h2>
       </div>
       <div className="info">
