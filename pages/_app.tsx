@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }) {
         <nav className="sp-nav">
           <div className="header">
             <h1 className="name">Shingo Sasaki</h1>
-            <button className="hamburger" onClick={() => setIsShowSpMenu(!isShowSpMenu)}>
+            <button title="メインメニュー" className="hamburger" onClick={() => setIsShowSpMenu(!isShowSpMenu)}>
               <FontAwesomeIcon icon={faBars} />
             </button>
           </div>
