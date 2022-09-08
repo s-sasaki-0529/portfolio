@@ -2,8 +2,6 @@
 import { GetStaticProps } from 'next'
 import React, { useState } from 'react'
 import RSSParser from 'rss-parser'
-import Image from 'next/image'
-
 type RSSFeed = {
   zenn: RSSParser.Item[]
   medium: RSSParser.Item[]
@@ -20,44 +18,19 @@ export const getStaticProps: GetStaticProps<RSSFeed> = async () => {
   }
 }
 
-export default function Outputs(props: RSSFeed) {
-  const [category, setCategory] = useState<'zenn' | 'medium' | 'slideshare'>('medium')
-  const ZennOutputs = (props: { items: RSSFeed['zenn'] }) => (
-    <div className="zenn-outputs">
-      {props.items.map(item => (
-        <a key={item.guid} rel="noreferrer" target="_blank" href={item.link}>
-          <img alt="zenn_enclosure" src={item.enclosure.url} />
-        </a>
-      ))}
-      <style jsx lang="scss">{`
-        .zenn-outputs {
-          display: flex;
-          flex-wrap: wrap;
-          img {
-            width: 20em;
-            height: auto;
-            padding: 0.5em;
-            object-fit: scale-down;
-          }
-          @media screen and (max-width: 920px) {
-            justify-content: center;
-          }
-        }
-      `}</style>
-    </div>
-  )
-  const MediumOutputs = (props: { items: RSSFeed['medium'] }) => (
-    <div className="medium-outputs">
-      {props.items.map(item => (
-        <div key={item.guid} className="item">
-          <div className="date">{new Date(item.pubDate).toISOString().split('T')[0]}</div>
-          <a className="title" rel="noreferrer" target="_blank" href={item.link}>
+function linkList(items: { date: string; title: string; url: string }[]) {
+  return (
+    <div className="link-list">
+      {items.map(item => (
+        <div key={item.title} className="item">
+          <div className="date">{new Date(item.date).toISOString().split('T')[0]}</div>
+          <a className="title" rel="noreferrer" target="_blank" href={item.url}>
             {item.title}
           </a>
         </div>
       ))}
       <style jsx lang="scss">{`
-        .medium-outputs {
+        .link-list {
           .item {
             display: flex;
             margin-bottom: 1em;
@@ -82,54 +55,39 @@ export default function Outputs(props: RSSFeed) {
       `}</style>
     </div>
   )
+}
+
+export default function Outputs(props: RSSFeed) {
+  const [category, setCategory] = useState<'zenn' | 'medium' | 'slideshare'>('medium')
+  const ZennOutputs = (props: { items: RSSFeed['zenn'] }) => {
+    return linkList(props.items.map(item => ({ date: item.isoDate, title: item.title, url: item.link })))
+  }
+  const MediumOutputs = (props: { items: RSSFeed['medium'] }) => {
+    return linkList(props.items.map(item => ({ date: item.isoDate, title: item.title, url: item.link })))
+  }
   const SlideShareOutputs = () => {
-    const SlideShareImage = (props: { url: string; imagePath: string }) => (
-      <div className="slideshare-outputs">
-        <a rel="noreferrer" target="_blank" href={props.url}>
-          <img src={props.imagePath} alt="slide" />
-        </a>
-        <style jsx lang="scss">{`
-          .slideshare-outputs {
-            padding: 1em;
-            :global(img) {
-              background-color: rgba(0, 0, 0, 0.5);
-              padding: 0.5em 0 0.5em 0 !important;
-              @media screen and (min-width: 921px) {
-                width: 540px;
-                height: auto;
-              }
-              @media screen and (max-width: 920px) {
-                width: 80vw;
-                height: auto;
-                margin: auto;
-              }
-            }
-          }
-        `}</style>
-      </div>
-    )
-    return (
-      <div className="root">
-        <div className="items">
-          <SlideShareImage url="https://www.slideshare.net/shingosasaki3/6-typescript" imagePath="/slide04.png" />
-          <SlideShareImage url="https://www.slideshare.net/shingosasaki3/vue-typescript" imagePath="/slide03.png" />
-          <SlideShareImage
-            url="https://www.slideshare.net/shingosasaki3/teachmebiz-188542240"
-            imagePath="/slide02.png"
-          />
-          <SlideShareImage url="https://www.slideshare.net/shingosasaki3/rails10-135067544" imagePath="/slide01.png" />
-        </div>
-        <style jsx lang="scss">{`
-          .root {
-            .items {
-              @media screen and (min-width: 921px) {
-                display: flex;
-              }
-            }
-          }
-        `}</style>
-      </div>
-    )
+    return linkList([
+      {
+        date: '2021/11/10',
+        title: '6万行の TypeScript 移行とその後',
+        url: 'https://www.slideshare.net/shingosasaki3/6-typescript'
+      },
+      {
+        date: '2021/05/19',
+        title: '大規模 Vue アプリケーションの TypeScript 移行',
+        url: 'https://www.slideshare.net/shingosasaki3/vue-typescript'
+      },
+      {
+        date: '2019/10/30',
+        title: 'Teachme Biz を支えるフロントエンドのアーキテクチャと品質担保',
+        url: 'https://www.slideshare.net/shingosasaki3/teachmebiz-188542240'
+      },
+      {
+        date: '2019/03/07',
+        title: 'レガシー過ぎるRailsアプリを10倍高速化した組織的なカイゼン活動',
+        url: 'https://www.slideshare.net/shingosasaki3/rails10-135067544'
+      }
+    ])
   }
 
   return (
