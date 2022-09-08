@@ -41,15 +41,16 @@ export default function Home() {
       <div className="title">
         <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="mobile-icon" width={80} height={80} />
         <h1 className="name">笹木信吾</h1>
-        <h2 className="name">SHINGO SASAKI</h2>
+        <h2 className="name sub">SHINGO SASAKI</h2>
       </div>
       <div className="info">
         <span className="profile">birth in 1992, live in Saitama Japan, </span>
         <span className="mail">shingo.sasaki.0529@gmail.com</span>
       </div>
       <div className="description">
-        <p className="paragraph">Webフロントエンドを主戦場としたWeb系プログラマ。</p>
-        <p className="paragraph">現在 (2022/09 ~ 2023/03) は、第一子誕生につき育児休暇中です</p>
+        <p className="paragraph">Web系エンジニア@スタディスト</p>
+        <p className="paragraph">主にフロントエンド全般と自動テスト周りが得意</p>
+        <p className="paragraph">現在 (~2023/03) 育児休暇中</p>
       </div>
       <div className="links">
         <LinkIcon title="Twitter" href="https://twitter.com/s_sasaki_0529" icon={<TwitterLogo />} />
@@ -102,6 +103,9 @@ export default function Home() {
             }
             .name {
               font-size: 7vw;
+              &.sub {
+                display: none;
+              }
             }
           }
           .info {
