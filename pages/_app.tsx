@@ -1,5 +1,6 @@
 import 'modern-css-reset'
 import { useRouter } from 'next/dist/client/router'
+import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -53,6 +54,9 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <div className="app">
+        <Head>
+          <title>Shingo Sasaki</title>
+        </Head>
         <nav className="pc-nav">
           <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="icon" width={160} height={160} />
           <div className="menu">
