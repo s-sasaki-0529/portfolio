@@ -49,9 +49,7 @@ export default function Home() {
       </div>
       <div className="description">
         <p className="paragraph">Webフロントエンドを主戦場としたWeb系プログラマ。</p>
-        <p className="paragraph">
-          現在は BtoB SaaS にて、主に Vue.js と Ruby on Rails を用いた Webアプリケーションの開発、運用を行っています。
-        </p>
+        <p className="paragraph">現在 (2022/09 ~ 2023/03) は、第一子誕生につき育児休暇中です</p>
       </div>
       <div className="links">
         <LinkIcon title="Twitter" href="https://twitter.com/s_sasaki_0529" icon={<TwitterLogo />} />
