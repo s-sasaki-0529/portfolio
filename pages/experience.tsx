@@ -8,6 +8,7 @@ export default function Experience() {
     company: string
     period: string
     summary: string
+    children: React.ReactNode
   }
   const ExperienceBlock: React.FC<Experience> = props => {
     const [isShowDescription, setIsShowDescription] = useState(false)
