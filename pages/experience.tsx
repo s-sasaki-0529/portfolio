@@ -92,6 +92,7 @@ export default function Experience() {
             <ul>
               <li>storybookによるUIコンポーネントのカタログ化</li>
               <li>vue-test-utilによるVueコンポーネントの単体テストの提案、実装</li>
+              <li>Vue 3 へのマイグレーションの実施</li>
             </ul>
           </li>
           <li>
