@@ -16,6 +16,10 @@ start dev server
 $ yarn dev
 ```
 
+## Deployment
+
+master ブランチにコードがマージされると、Vercel によって自動でデプロイされる
+
 ## 使用、参考にした素材
 
 - [Start Bootstrap](https://startbootstrap.com/)
