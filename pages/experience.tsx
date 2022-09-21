@@ -8,10 +8,11 @@ export default function Experience() {
     company: string
     period: string
     summary: string
+    showDescriptionDefault: boolean
     children: React.ReactNode
   }
   const ExperienceBlock: React.FC<Experience> = props => {
-    const [isShowDescription, setIsShowDescription] = useState(false)
+    const [isShowDescription, setIsShowDescription] = useState(props.showDescriptionDefault)
 
     return (
       <div className={`experience-block ${props.className}`}>
@@ -71,6 +72,7 @@ export default function Experience() {
         company="BtoB SaaS ベンチャー"
         period="2018/08 ~"
         summary="自社開発Webアプリケーション開発のリード"
+        showDescriptionDefault={true}
       >
         <ul>
           <li>スクラム開発</li>
@@ -150,6 +152,7 @@ export default function Experience() {
         company="受託開発及びSES"
         period="2016/10 ~ 2018/07"
         summary="Webサービスを中心に、幅広い技術の受託開発を経験(SES での客先常駐を含む)"
+        showDescriptionDefault={false}
       >
         <ul>
           <li>
@@ -238,6 +241,7 @@ export default function Experience() {
         company="大手ISP"
         period="2015/04 ~ 2016/09"
         summary="新卒入社後、Web系LMSの設計、開発を主に経験"
+        showDescriptionDefault={false}
       >
         <ul>
           <li>
