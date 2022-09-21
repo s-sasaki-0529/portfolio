@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretUp, faCaretDown } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
+import Link from '../components/Link'
 
 export default function Experience() {
   type Experience = {
@@ -79,8 +80,15 @@ export default function Experience() {
           <li>
             Rails による REST APIの設計、実装
             <ul>
-              <li>rspecによる単体テスト、リクエストテストの作成</li>
+              <li>
+                <Link href="https://zenn.dev/sa2knight/articles/2388ecadc82b98">
+                  rspecによる単体テスト、リクエストテストの作成
+                </Link>
+              </li>
               <li>apiblueprint/aglioによるAPIドキュメントの作成</li>
+              <li>
+                <Link href="https://www.slideshare.net/shingosasaki3/rails10-135067544">パフォーマンス改善全般</Link>
+              </li>
               <li>
                 Elasticsearchによる検索最適化
                 <ul>
@@ -88,14 +96,37 @@ export default function Experience() {
                   <li>効率の良い検索クエリの検討、実装</li>
                 </ul>
               </li>
+              <li>
+                API ドキュメントの apiblueprint → Open API への移行
+                <ul>
+                  <li>
+                    スキーマ駆動開発の基盤整備
+                    <ul>
+                      <li>単体テストでのスキーマの品質担保</li>
+                      <li>モックデータ生成</li>
+                      <li>型ファイル生成</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li>
-            VueJSによるフロントエンドの設計、実装
+            <Link href="https://www.slideshare.net/shingosasaki3/teachmebiz-188542240">
+              VueJSによるフロントエンドの設計、実装のリード
+            </Link>
             <ul>
-              <li>storybookによるUIコンポーネントのカタログ化</li>
+              <li>
+                <Link href="https://zenn.dev/sa2knight/books/aca5d5e021dd10262bb9">
+                  storybookによるUIコンポーネントのカタログ化
+                </Link>
+              </li>
               <li>vue-test-utilによるVueコンポーネントの単体テストの提案、実装</li>
-              <li>Vue 3 へのマイグレーションの実施</li>
+              <li>
+                <Link href="https://studist.tech/migration-to-vue-3-4b4c4fad0324?source=rss-8d14345cbc19------2">
+                  Vue 3 へのマイグレーションの実施
+                </Link>
+              </li>
             </ul>
           </li>
           <li>
@@ -107,15 +138,41 @@ export default function Experience() {
             </ul>
           </li>
           <li>
+            フロントエンド開発環境のDX改善業務
+            <ul>
+              <li>
+                <Link href="https://studist.tech/new-dx-for-frontend-f8acdfcc0d16?source=rss-8d14345cbc19------2">
+                  サーバと密結合だった開発環境のフロントエンド切り出し
+                </Link>
+              </li>
+              <li>Vite 開発環境の導入</li>
+              <li>karma, Jest から Vitest への移行</li>
+              <li>
+                <Link href="https://studist.tech/test-eslint-config-by-eslint-8d03870a23d9?source=rss-8d14345cbc19------2">
+                  ESLint 設定の管理と継続的な改善
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li>
             CI/CDの管理
             <ul>
-              <li>CircleCIによるCIの継続的改善活動</li>
+              <li>
+                <Link href="https://studist.tech/how-to-reduce-circleci-credits-ac81de4857d8">
+                  CircleCIによるCIの継続的改善活動
+                </Link>
+              </li>
               <li>ステージング環境への任意のブランチの自動デプロイの仕組みの実装</li>
               <li>Storybookとreg-suitを用いたUIのスナップショットテストの提案、実装、運用</li>
               <li>CapybaraによるE2Eテストの提案、設計、実装、運用</li>
               <li>Slackコマンドによる開発プロセスの自動化促進(テスト実行、ステージングデプロイ)</li>
               <li>他、CIの設定構成の管理全般</li>
             </ul>
+          </li>
+          <li>
+            <Link href="https://studist.tech/dropping-support-for-ie11-abbd36882c61?source=rss-8d14345cbc19------2">
+              IE11 の漸進的なサポート終了のリード
+            </Link>
           </li>
           <li>
             ライブラリバージョンの管理と積極的な改善
@@ -125,24 +182,22 @@ export default function Experience() {
                 フロントエンドビルド環境のアップグレード
                 <ul>
                   <li>node 8.x → 12.x → 14.x</li>
-                  <li>Webpack 3 → 4 → 5</li>
+                  <li>
+                    <Link href="https://studist.tech/migration-webpack-from-4-to-5-3df31da8e7a2">
+                      Webpack 3 → 4 → 5
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://studist.tech/upgrade-to-storybook-6-42da05471e7d">Storybook 4 → 5 → 6</Link>
+                  </li>
                 </ul>
               </li>
             </ul>
           </li>
-          <li>JavaScript プロジェクトの TypeScript への全面移行</li>
           <li>
-            API ドキュメントの apiblueprint → Swagger への移行
-            <ul>
-              <li>
-                スキーマ駆動開発の基盤整備
-                <ul>
-                  <li>単体テストでのスキーマの品質担保</li>
-                  <li>モックデータ生成</li>
-                  <li>型ファイル生成</li>
-                </ul>
-              </li>
-            </ul>
+            <Link href="https://studist.tech/typescript-migration-90b99b7c8974">
+              JavaScript プロジェクトの TypeScript への全面移行
+            </Link>
           </li>
         </ul>
       </ExperienceBlock>
