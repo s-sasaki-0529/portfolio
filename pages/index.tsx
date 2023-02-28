@@ -50,7 +50,6 @@ export default function Home() {
       <div className="description">
         <p className="paragraph">Web系エンジニア@スタディスト</p>
         <p className="paragraph">主にフロントエンド全般と自動テスト周りが得意</p>
-        <p className="paragraph">現在 (~2023/03) 育児休暇中</p>
       </div>
       <div className="links">
         <LinkIcon title="Twitter" href="https://twitter.com/s_sasaki_0529" icon={<TwitterLogo />} />
