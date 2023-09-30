@@ -48,7 +48,7 @@ export default function Home() {
         <span className="mail">shingo.sasaki.0529@gmail.com</span>
       </div>
       <div className="description">
-        <p className="paragraph">Web系エンジニア@スタディスト</p>
+        <p className="paragraph">Web系エンジニア</p>
         <p className="paragraph">主にフロントエンド全般と自動テスト周りが得意</p>
       </div>
       <div className="links">
