@@ -10,7 +10,7 @@ export default function Experience() {
     period: string
     summary: string
     showDescriptionDefault: boolean
-    children: React.ReactNode
+    children?: React.ReactNode
   }
   const ExperienceBlock: React.FC<Experience> = props => {
     const [isShowDescription, setIsShowDescription] = useState(props.showDescriptionDefault)
@@ -21,11 +21,17 @@ export default function Experience() {
           <span className="company">{props.company}</span>
           <span className="period">{props.period}</span>
         </div>
-        <div className="summary" onClick={() => setIsShowDescription(!isShowDescription)}>
-          <span className="body">{props.summary}</span>
-          <FontAwesomeIcon className="toggleIcon" icon={isShowDescription ? faCaretUp : faCaretDown} />
-        </div>
-        <div className={isShowDescription ? 'description' : 'description collapsed'}>{props.children}</div>
+        {props.children ? (
+          <>
+            <button className="summary" onClick={() => setIsShowDescription(!isShowDescription)}>
+              <span className="body">{props.summary}</span>
+              <FontAwesomeIcon className="toggleIcon" icon={isShowDescription ? faCaretUp : faCaretDown} />
+            </button>
+            <div className={isShowDescription ? 'description' : 'description collapsed'}>{props.children}</div>
+          </>
+        ) : (
+          <div className="summary">{props.summary}</div>
+        )}
         <style jsx lang="scss">{`
           .experience-block {
             margin: 4rem 0 4rem 0;
@@ -47,7 +53,9 @@ export default function Experience() {
             .summary {
               font-size: 1.1rem;
               color: rgb(108, 117, 125);
-              cursor: pointer;
+              border: none;
+              background: none;
+              padding: 0;
               .body {
                 margin-right: 0.5em;
               }
@@ -69,9 +77,16 @@ export default function Experience() {
     <div className="experience">
       <h1 className="title">EXPERIENCE</h1>
       <ExperienceBlock
-        className="saas"
-        company="BtoB SaaS ベンチャー"
-        period="2018/08 ~"
+        className="saas-2"
+        company="4社目: BtoB SaaS スタートアップ ②"
+        period="2023/09 ~"
+        summary="転職したてのため準備中"
+        showDescriptionDefault={false}
+      />
+      <ExperienceBlock
+        className="saas-1"
+        company="3社目: BtoB SaaS スタートアップ ①"
+        period="2018/08 ~ 2023/08"
         summary="自社開発Webアプリケーション開発のリード"
         showDescriptionDefault={true}
       >
@@ -204,7 +219,7 @@ export default function Experience() {
 
       <ExperienceBlock
         className="ses"
-        company="受託開発及びSES"
+        company="2社目: 受託開発及びSES"
         period="2016/10 ~ 2018/07"
         summary="Webサービスを中心に、幅広い技術の受託開発を経験(SES での客先常駐を含む)"
         showDescriptionDefault={false}
@@ -293,7 +308,7 @@ export default function Experience() {
 
       <ExperienceBlock
         className="isp"
-        company="大手ISP"
+        company="1社目: 大手ISP"
         period="2015/04 ~ 2016/09"
         summary="新卒入社後、Web系LMSの設計、開発を主に経験"
         showDescriptionDefault={false}
