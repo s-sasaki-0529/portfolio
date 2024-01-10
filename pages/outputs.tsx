@@ -20,36 +20,19 @@ export const getStaticProps: GetStaticProps<RSSFeed> = async () => {
 
 function linkList(items: { date: string; title: string; url: string }[]) {
   return (
-    <div className="link-list">
+    <div>
       {items.map(item => (
-        <div key={item.title} className="item">
-          <div className="date">{new Date(item.date).toISOString().split('T')[0]}</div>
-          <a className="title" rel="noreferrer" target="_blank" href={item.url}>
+        <div key={item.title} className="flex mb-[1em] text-[1rem] cursor-pointer">
+          <div className="date mr-[1em]">{new Date(item.date).toISOString().split('T')[0]}</div>
+          <a className="underline visited:text-[rgb(0,_0,_238)]" rel="noreferrer" target="_blank" href={item.url}>
             {item.title}
           </a>
         </div>
       ))}
       <style jsx lang="scss">{`
-        .link-list {
-          .item {
-            display: flex;
-            margin-bottom: 1em;
-            font-size: 1rem;
-            cursor: pointer;
-            .date {
-              margin-right: 1em;
-            }
-            .title {
-              text-decoration: underline;
-              &:visited {
-                color: rgb(0, 0, 238);
-              }
-            }
-            @media screen and (max-width: 920px) {
-              .date {
-                display: none;
-              }
-            }
+        @media screen and (max-width: 920px) {
+          .date {
+            display: none;
           }
         }
       `}</style>
