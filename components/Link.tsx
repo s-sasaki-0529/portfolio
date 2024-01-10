@@ -9,16 +9,8 @@ export const Link: React.FC<Prop> = props => {
   return (
     <>
       <NextLink className="nextLink" href={props.href}>
-        <a>{props.children}</a>
+        <a className="underline visited:text-[rgb(0,_0,_238)]">{props.children}</a>
       </NextLink>
-      <style jsx lang="scss">{`
-        a {
-          text-decoration: underline;
-          &:visited {
-            color: rgb(0, 0, 238);
-          }
-        }
-      `}</style>
     </>
   )
 }
