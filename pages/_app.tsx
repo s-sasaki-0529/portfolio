@@ -19,36 +19,21 @@ function MyApp({ Component, pageProps }) {
 
   const Menu = () => (
     <>
-      <ul className="menu">
+      <ul className="p-0 m-0">
         {['about', 'outputs', 'experience'].map(menu => (
-          <li key={menu} className="menu-item">
+          <li key={menu} className="h-[40px] font-extrabold list-none no-underline decoration-0">
             <Link href={`/${menu}`}>
-              <a className={menu === currentPageName ? 'menu-link selected' : 'menu-link'}>{menu}</a>
+              <a
+                className={`text-[0.9rem] text-[rgba(255,255,255,0.55)] uppercase nonetex ${
+                  menu === currentPageName ? 'text-white' : ''
+                }`}
+              >
+                {menu}
+              </a>
             </Link>
           </li>
         ))}
       </ul>
-      <style jsx lang="scss">{`
-        .menu {
-          padding: 0;
-          margin: 0;
-          .menu-item {
-            height: 40px;
-            font-weight: 800;
-            list-style: none;
-            .menu-link,
-            .menu-link:visited {
-              font-size: 0.9rem;
-              color: rgba(255, 255, 255, 0.55);
-              text-transform: uppercase;
-              text-decoration: none;
-              &.selected {
-                color: rgb(255, 255, 255);
-              }
-            }
-          }
-        }
-      `}</style>
     </>
   )
 
