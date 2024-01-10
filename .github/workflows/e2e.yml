@@ -17,7 +17,7 @@ jobs:
     - name: Build and Start Next.js
       run: |
         yarn build
-        yarn start
+        yarn start &
     - name: Run Playwright tests
       run: xvfb-run yarn e2e:head
     - uses: actions/upload-artifact@v3
