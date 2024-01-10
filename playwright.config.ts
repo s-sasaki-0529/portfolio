@@ -15,5 +15,6 @@ export default defineConfig({
       name: 'Mobile Safari',
       use: { ...devices['iPhone 14'] }
     }
-  ]
+  ],
+  snapshotPathTemplate: 'spec/__snapshots__/{testFilePath}/{projectName}/{arg}.snap.png'
 })
