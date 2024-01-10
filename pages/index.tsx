@@ -24,19 +24,25 @@ export default function Home() {
   return (
     <div>
       <div className="title">
-        <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="mobile-icon" width={80} height={80} />
-        <h1 className="name">笹木 信吾</h1>
-        <h2 className="name sub">SHINGO SASAKI</h2>
+        <Image
+          src="/icon.jpg"
+          alt="icon_shingo_sasaki"
+          className="mobile-icon [@media_screen_and(min-width:921)]:!hidden rounded-[50%]"
+          width={80}
+          height={80}
+        />
+        <h1 className="name text-[rgb(52,58,64)] text-[3rem]">笹木 信吾</h1>
+        <h2 className="name text-[rgb(52,58,64)] text-[3rem] sub">SHINGO SASAKI</h2>
       </div>
-      <div className="info">
+      <div className="info text-[1.5rem] font-normal mb-[50px] text-[rgb(108,117,125)]">
         <span className="profile">birth in 1992, live in Saitama Japan, </span>
-        <span className="mail">shingo.sasaki.0529@gmail.com</span>
+        <span className="text-[rgb(189,_93,_56)]">shingo.sasaki.0529@gmail.com</span>
       </div>
-      <div className="description">
-        <p className="paragraph">Web系エンジニア</p>
-        <p className="paragraph">主にフロントエンド全般と自動テスト周りが得意</p>
+      <div className="mb-[50px]">
+        <p className="py-[5px]">Web系エンジニア</p>
+        <p className="py-[5px]">主にフロントエンド全般と自動テスト周りが得意</p>
       </div>
-      <div className="links">
+      <div className="flex">
         <LinkIcon title="Twitter" href="https://twitter.com/s_sasaki_0529" icon={<TwitterLogo />} />
         <LinkIcon title="GitHub" href="https://github.com/s-sasaki-0529" icon={<GitHubLogo />} />
         <LinkIcon title="Zenn" href="https://zenn.dev/sa2knight" icon={<ZennLogo />} />
@@ -44,36 +50,9 @@ export default function Home() {
         <LinkIcon title="Slideshare" href="https://www.slideshare.net/shingosasaki3" icon={<SlideshareLogo />} />
       </div>
       <style jsx lang="scss">{`
-        .title {
-          .name {
-            color: rgb(52, 58, 64);
-            font-size: 3rem;
-          }
-        }
-        .info {
-          font-size: 1.5rem;
-          font-weight: 400;
-          margin-bottom: 50px;
-          color: rgb(108, 117, 125);
-          .mail {
-            color: rgb(189, 93, 56);
-          }
-        }
-        .description {
-          margin-bottom: 50px;
-          .paragraph {
-            padding: 5px 0 5px 0;
-          }
-        }
-        .links {
-          display: flex;
-        }
-
         @media screen and (min-width: 921px) {
-          .title {
-            :global(.mobile-icon) {
-              display: none !important;
-            }
+          :global(.mobile-icon) {
+            display: none !important;
           }
         }
         @media screen and (max-width: 920px) {
