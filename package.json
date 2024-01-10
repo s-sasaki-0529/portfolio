@@ -19,6 +19,7 @@
     "rss-parser": "^3.12.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.40.1",
     "@styled-jsx/plugin-sass": "^4.0.2",
     "@types/node": "^18.7.16",
     "@types/react": "^18.0.18",
