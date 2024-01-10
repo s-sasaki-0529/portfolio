@@ -42,3 +42,6 @@ cypress/downloads/*.reg
 
 # reg-suit
 .reg
+
+# playwright
+playwright-report/
