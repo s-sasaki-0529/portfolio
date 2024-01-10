@@ -5,7 +5,6 @@ import Link from '../components/Link'
 
 export default function Experience() {
   type Experience = {
-    className: string
     company: string
     period: string
     summary: string
@@ -16,56 +15,31 @@ export default function Experience() {
     const [isShowDescription, setIsShowDescription] = useState(props.showDescriptionDefault)
 
     return (
-      <div className={`experience-block ${props.className}`}>
-        <div className="header">
-          <span className="company">{props.company}</span>
-          <span className="period">{props.period}</span>
+      <div className="my-[4rem]">
+        <div className="header flex justify-between">
+          <span className="text-[1.5rem] font-semibold text-[rgb(_52,_58,_64)]">{props.company}</span>
+          <span className="text-[rgb(_189,_93,_56)]">{props.period}</span>
         </div>
         {props.children ? (
           <>
-            <button className="summary" onClick={() => setIsShowDescription(!isShowDescription)}>
-              <span className="body">{props.summary}</span>
+            <button
+              className="text-[1.1rem] text-[rgb(108,117,125)] border-none bg-transparent p-0"
+              onClick={() => setIsShowDescription(!isShowDescription)}
+            >
+              <span className="mr-[0.5em]">{props.summary}</span>
               <FontAwesomeIcon className="toggleIcon" icon={isShowDescription ? faCaretUp : faCaretDown} />
             </button>
-            <div className={isShowDescription ? 'description' : 'description collapsed'}>{props.children}</div>
+            <div className="text-[rgb(108,117,125)] text-[0.9rem]">
+              <div className={isShowDescription ? '' : 'hidden'}>{props.children}</div>
+            </div>
           </>
         ) : (
-          <div className="summary">{props.summary}</div>
+          <div className="text-[rgb(108,117,125)] text-[1.1rem]">{props.summary}</div>
         )}
         <style jsx lang="scss">{`
-          .experience-block {
-            margin: 4rem 0 4rem 0;
-            .header {
-              display: flex;
-              justify-content: space-between;
-              @media screen and (max-width: 920px) {
-                flex-direction: column;
-              }
-              .company {
-                font-size: 1.5rem;
-                font-weight: 600;
-                color: rgb(52, 58, 64);
-              }
-              .period {
-                color: rgb(189, 93, 56);
-              }
-            }
-            .summary {
-              font-size: 1.1rem;
-              color: rgb(108, 117, 125);
-              border: none;
-              background: none;
-              padding: 0;
-              .body {
-                margin-right: 0.5em;
-              }
-            }
-            .description {
-              color: rgb(108, 117, 125);
-              font-size: 0.9rem;
-              &.collapsed {
-                display: none;
-              }
+          .header {
+            @media screen and (max-width: 920px) {
+              flex-direction: column;
             }
           }
         `}</style>
@@ -77,14 +51,12 @@ export default function Experience() {
     <div className="experience">
       <h1 className="title">EXPERIENCE</h1>
       <ExperienceBlock
-        className="saas-2"
         company="4社目: BtoB SaaS スタートアップ ②"
         period="2023/09 ~"
         summary="転職したてのため準備中"
         showDescriptionDefault={false}
       />
       <ExperienceBlock
-        className="saas-1"
         company="3社目: BtoB SaaS スタートアップ ①"
         period="2018/08 ~ 2023/08"
         summary="自社開発Webアプリケーション開発のリード"
@@ -218,7 +190,6 @@ export default function Experience() {
       </ExperienceBlock>
 
       <ExperienceBlock
-        className="ses"
         company="2社目: 受託開発及びSES"
         period="2016/10 ~ 2018/07"
         summary="Webサービスを中心に、幅広い技術の受託開発を経験(SES での客先常駐を含む)"
@@ -307,7 +278,6 @@ export default function Experience() {
       </ExperienceBlock>
 
       <ExperienceBlock
-        className="isp"
         company="1社目: 大手ISP"
         period="2015/04 ~ 2016/09"
         summary="新卒入社後、Web系LMSの設計、開発を主に経験"
