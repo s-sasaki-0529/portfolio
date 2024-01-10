@@ -9,30 +9,15 @@ import { ReactNode } from 'react'
 export default function Home() {
   const LinkIcon: React.FC<{ title: string; href: string; icon: ReactNode }> = props => (
     <>
-      <a className="link" rel="noreferrer" target="_blank" href={props.href} title={props.title}>
-        {props.icon}
+      <a
+        className="flex justify-center items-center bg-[rgb(73,_80,_87)] w-[3em] h-[3em] mr-[24px] rounded-[50%] cursor-pointer hover:bg-[rgb(189,_93,_56)]"
+        rel="noreferrer"
+        target="_blank"
+        href={props.href}
+        title={props.title}
+      >
+        <svg className="fill-[rgb(255,_255,_255)] w-1/2 h-1/2">{props.icon}</svg>
       </a>
-      <style jsx lang="scss">{`
-        .link {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: rgb(73, 80, 87);
-          width: 3em;
-          height: 3em;
-          margin-right: 24px;
-          border-radius: 50%;
-          cursor: pointer;
-          &:hover {
-            background-color: rgb(189, 93, 56);
-          }
-          :global(svg) {
-            fill: rgb(255, 255, 255);
-            width: 50%;
-            height: 50%;
-          }
-        }
-      `}</style>
     </>
   )
 
