@@ -7,6 +7,9 @@ import Image from 'next/image'
 import { ReactNode } from 'react'
 
 export default function Home() {
+  /**
+   * 各外部リンク用のリンクアイコン
+   */
   const LinkIcon: React.FC<{ title: string; href: string; icon: ReactNode }> = props => (
     <>
       <a
@@ -21,10 +24,17 @@ export default function Home() {
     </>
   )
 
+  /**
+   * モバイルのみ表示するユーザーアイコン
+   */
+  const MobileUserIcon = () => (
+    <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="pc:!hidden rounded-[50%]" width={60} height={60} />
+  )
+
   return (
     <div>
       <div className="sp:flex sp:items-center sp:gap-2">
-        <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="pc:!hidden rounded-[50%]" width={60} height={60} />
+        <MobileUserIcon />
         <h1 className="sp:text-[7vw] text-[rgb(52,58,64)] text-[3rem]">笹木 信吾</h1>
         <h2 className="sp:!hidden text-[rgb(52,58,64)] text-[3rem]">SHINGO SASAKI</h2>
       </div>
