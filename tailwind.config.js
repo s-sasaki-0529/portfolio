@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    screens: {
+      'sp': { 'max': '920px' },
+      'pc': { 'min': '921px' },
+    }
   },
   plugins: [],
 }

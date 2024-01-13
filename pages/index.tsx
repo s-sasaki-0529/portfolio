@@ -23,18 +23,12 @@ export default function Home() {
 
   return (
     <div>
-      <div className="title">
-        <Image
-          src="/icon.jpg"
-          alt="icon_shingo_sasaki"
-          className="mobile-icon [@media_screen_and(min-width:921)]:!hidden rounded-[50%]"
-          width={80}
-          height={80}
-        />
-        <h1 className="name text-[rgb(52,58,64)] text-[3rem]">笹木 信吾</h1>
-        <h2 className="name text-[rgb(52,58,64)] text-[3rem] sub">SHINGO SASAKI</h2>
+      <div className="sp:flex sp:items-center sp:gap-2">
+        <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="pc:!hidden rounded-[50%]" width={60} height={60} />
+        <h1 className="sp:text-[7vw] text-[rgb(52,58,64)] text-[3rem]">笹木 信吾</h1>
+        <h2 className="sp:!hidden text-[rgb(52,58,64)] text-[3rem]">SHINGO SASAKI</h2>
       </div>
-      <div className="info text-[1.5rem] font-normal mb-[50px] text-[rgb(108,117,125)]">
+      <div className="pc:text-[1.5rem] sp:text-[4vw] sp:text-right font-normal mb-[50px] text-[rgb(108,117,125)]">
         <span className="profile">birth in 1992, live in Saitama Japan, </span>
         <span className="text-[rgb(189,_93,_56)]">shingo.sasaki.0529@gmail.com</span>
       </div>
@@ -49,34 +43,6 @@ export default function Home() {
         <LinkIcon title="Medium" href="https://medium.com/@shingo.sasaki" icon={<MediumLogo />} />
         <LinkIcon title="Slideshare" href="https://www.slideshare.net/shingosasaki3" icon={<SlideshareLogo />} />
       </div>
-      <style jsx lang="scss">{`
-        @media screen and (min-width: 921px) {
-          :global(.mobile-icon) {
-            display: none !important;
-          }
-        }
-        @media screen and (max-width: 920px) {
-          .title {
-            display: flex;
-            align-items: center;
-            :global(.mobile-icon) {
-              display: block !important;
-              border: 0.5rem solid rgba(255, 255, 255, 0.2) !important;
-              border-radius: 50%;
-            }
-            .name {
-              font-size: 7vw;
-              &.sub {
-                display: none;
-              }
-            }
-          }
-          .info {
-            text-align: right;
-            font-size: 4vw;
-          }
-        }
-      `}</style>
     </div>
   )
 }
