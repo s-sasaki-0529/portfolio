@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <ul className="p-0 m-0">
         {['about', 'outputs', 'experience'].map(menu => (
-          <li key={menu} className="h-[40px] font-extrabold list-none no-underline decoration-0">
+          <li key={menu} className="h-[40px] font-extrabold list-none no-underline decoration-0 leading-[0]">
             <Link href={`/${menu}`}>
               <a
                 className={`text-[0.9rem] text-[rgba(255,255,255,0.55)] uppercase nonetex ${
@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
         </Head>
         <nav className="pc-nav">
           <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="icon" width={160} height={160} />
-          <div className="menu">
+          <div className="menu p-2">
             <Menu />
           </div>
         </nav>
