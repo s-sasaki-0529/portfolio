@@ -45,3 +45,4 @@ cypress/downloads/*.reg
 
 # playwright
 playwright-report/
+test-results/
