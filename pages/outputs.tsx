@@ -2,11 +2,18 @@
 import { GetStaticProps } from 'next'
 import React, { useState } from 'react'
 import RSSParser from 'rss-parser'
+
+const OutputCategories = ['Medium', 'Zenn', 'SlideShare'] as const
+type OutputCategory = typeof OutputCategories[number]
+
 type RSSFeed = {
   zenn: RSSParser.Item[]
   medium: RSSParser.Item[]
 }
 
+/**
+ * このページは ISR を用いて、zenn 及び medium の記事をあらかじめRSSで取得しておく
+ */
 export const getStaticProps: GetStaticProps<RSSFeed> = async () => {
   const rssParser = new RSSParser()
   const zenn = await rssParser.parseURL('https://zenn.dev/sa2knight/feed').then(feed => feed.items)
@@ -18,30 +25,32 @@ export const getStaticProps: GetStaticProps<RSSFeed> = async () => {
   }
 }
 
+const OutputCategoryLabel: React.FC<{ name: OutputCategory; isActive: boolean; onClick: () => void }> = props => {
+  const activeClass = props.isActive ? 'font-bold underline' : ''
+  return (
+    <span className={`mr-[0.5em] cursor-pointer ${activeClass}`} onClick={props.onClick}>
+      {props.name}
+    </span>
+  )
+}
+
 function linkList(items: { date: string; title: string; url: string }[]) {
   return (
     <div>
       {items.map(item => (
         <div key={item.title} className="flex mb-[1em] text-[1rem] cursor-pointer">
-          <div className="date mr-[1em]">{new Date(item.date).toISOString().split('T')[0]}</div>
+          <div className="sp:hidden mr-[1em]">{new Date(item.date).toISOString().split('T')[0]}</div>
           <a className="underline visited:text-[rgb(0,_0,_238)]" rel="noreferrer" target="_blank" href={item.url}>
             {item.title}
           </a>
         </div>
       ))}
-      <style jsx lang="scss">{`
-        @media screen and (max-width: 920px) {
-          .date {
-            display: none;
-          }
-        }
-      `}</style>
     </div>
   )
 }
 
 export default function Outputs(props: RSSFeed) {
-  const [category, setCategory] = useState<'zenn' | 'medium' | 'slideshare'>('medium')
+  const [category, setCategory] = useState<OutputCategory>('Medium')
   const ZennOutputs = (props: { items: RSSFeed['zenn'] }) => {
     return linkList(props.items.map(item => ({ date: item.isoDate, title: item.title, url: item.link })))
   }
@@ -74,59 +83,25 @@ export default function Outputs(props: RSSFeed) {
   }
 
   return (
-    <div className="root">
-      <div className="header">
-        <div className="title">OUTPUTS</div>
-        <div className="categories">
-          <span
-            className={category === 'medium' ? 'category active' : 'category'}
-            onClick={() => setCategory('medium')}
-          >
-            Medium
-          </span>
-          <span className={category === 'zenn' ? 'category active' : 'category'} onClick={() => setCategory('zenn')}>
-            Zenn
-          </span>
-          <span
-            className={category === 'slideshare' ? 'category active' : 'category'}
-            onClick={() => setCategory('slideshare')}
-          >
-            Slideshare
-          </span>
+    <div className="w-full h-full text-[rgb(_52,_58,_64)]">
+      <div className="flex justify-start items-baseline mb-[4em]">
+        <div className="mr-[0.5em] text-[2rem]">OUTPUTS</div>
+        <div>
+          {OutputCategories.map(name => (
+            <OutputCategoryLabel
+              key={name}
+              name={name}
+              isActive={category === name}
+              onClick={() => setCategory(name)}
+            />
+          ))}
         </div>
       </div>
       <div className="outputs">
-        {category === 'medium' ? <MediumOutputs items={props.medium} /> : null}
-        {category === 'zenn' ? <ZennOutputs items={props.zenn} /> : null}
-        {category === 'slideshare' ? <SlideShareOutputs /> : null}
+        {category === 'Medium' ? <MediumOutputs items={props.medium} /> : null}
+        {category === 'Zenn' ? <ZennOutputs items={props.zenn} /> : null}
+        {category === 'SlideShare' ? <SlideShareOutputs /> : null}
       </div>
-      <style jsx lang="scss">{`
-        .root {
-          width: 100%;
-          height: 100%;
-          color: rgb(52, 58, 64);
-          .header {
-            display: flex;
-            justify-content: start;
-            align-items: baseline;
-            margin-bottom: 4em;
-            .title {
-              margin-right: 0.5em;
-              font-size: 2rem;
-            }
-            .categories {
-              .category {
-                margin-right: 0.5em;
-                cursor: pointer;
-                &.active {
-                  font-weight: 600;
-                  text-decoration: underline;
-                }
-              }
-            }
-          }
-        }
-      `}</style>
     </div>
   )
 }
