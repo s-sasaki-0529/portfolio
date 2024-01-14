@@ -1,10 +1,18 @@
 import { test, expect } from '@playwright/test'
 
+const isMobile = (viewport: { width: number }) => viewport.width < 920
+
 test.beforeEach(async ({ page, viewport }) => {
   await page.goto('http://localhost:3000/about')
   await expect(page.getByText('笹木 信吾')).toBeVisible()
-  if (viewport.width < 920) {
+  if (isMobile(viewport)) {
     await page.getByRole('button', { name: 'メインメニュー' }).click()
+  }
+})
+
+test('mobile menu', async ({ page, viewport }) => {
+  if (isMobile(viewport)) {
+    await expect(page).toHaveScreenshot('mobile-menu.png')
   }
 })
 
