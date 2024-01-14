@@ -16,7 +16,7 @@ export default function Experience() {
 
     return (
       <div className="my-[4rem]">
-        <div className="header flex justify-between">
+        <div className="flex justify-between sp:flex-col">
           <span className="text-[1.5rem] font-semibold text-[rgb(_52,_58,_64)]">{props.company}</span>
           <span className="text-[rgb(_189,_93,_56)]">{props.period}</span>
         </div>
@@ -36,20 +36,13 @@ export default function Experience() {
         ) : (
           <div className="text-[rgb(108,117,125)] text-[1.1rem]">{props.summary}</div>
         )}
-        <style jsx lang="scss">{`
-          .header {
-            @media screen and (max-width: 920px) {
-              flex-direction: column;
-            }
-          }
-        `}</style>
       </div>
     )
   }
 
   return (
-    <div className="experience">
-      <h1 className="title">EXPERIENCE</h1>
+    <div className="w-full h-full">
+      <h1 className="text-[rgb(_52,_58,_64)]">EXPERIENCE</h1>
       <ExperienceBlock
         company="4社目: BtoB SaaS スタートアップ ②"
         period="2023/09 ~"
@@ -305,16 +298,6 @@ export default function Experience() {
           </li>
         </ul>
       </ExperienceBlock>
-
-      <style jsx lang="scss">{`
-        .experience {
-          width: 100%;
-          height: 100%;
-          .title {
-            color: rgb(52, 58, 64);
-          }
-        }
-      `}</style>
     </div>
   )
 }
