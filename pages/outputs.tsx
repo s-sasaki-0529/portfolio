@@ -28,9 +28,9 @@ export const getStaticProps: GetStaticProps<RSSFeed> = async () => {
 const OutputCategoryLabel: React.FC<{ name: OutputCategory; isActive: boolean; onClick: () => void }> = props => {
   const activeClass = props.isActive ? 'font-bold underline' : ''
   return (
-    <span className={`mr-[0.5em] cursor-pointer ${activeClass}`} onClick={props.onClick}>
+    <button className={`mr-[0.5em] ${activeClass}`} onClick={props.onClick}>
       {props.name}
-    </span>
+    </button>
   )
 }
 
