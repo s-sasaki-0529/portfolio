@@ -23,8 +23,8 @@ function MyApp({ Component, pageProps }) {
           <li key={menu} className="h-[40px] font-extrabold list-none no-underline decoration-0 leading-[0]">
             <Link href={`/${menu}`}>
               <a
-                className={`text-[0.9rem] text-[rgba(255,255,255,0.55)] uppercase nonetex ${
-                  menu === currentPageName ? 'text-white' : ''
+                className={`text-[1.1rem] text-[rgba(255,255,255,0.55)] uppercase nonetex ${
+                  menu === currentPageName ? 'text-white underline' : ''
                 }`}
               >
                 {menu}

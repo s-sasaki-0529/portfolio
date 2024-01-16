@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Tailwind の base でリセットされるリストスタイルを戻す */
+ok, ul, menu {
+  list-style: revert;
+  margin: revert;
+  padding: revert;
+}
