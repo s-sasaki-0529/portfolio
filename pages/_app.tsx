@@ -1,4 +1,3 @@
-import 'modern-css-reset'
 import '../styles/globals.css'
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
