@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
 
   const Menu = () => (
     <>
-      <ul className="p-0 m-0">
+      <ul className="py-2 px-0 m-0">
         {['about', 'outputs', 'experience'].map(menu => (
           <li key={menu} className="h-[40px] font-extrabold list-none no-underline decoration-0 leading-[0]">
             <Link href={`/${menu}`}>
@@ -68,8 +68,8 @@ function MyApp({ Component, pageProps }) {
             </button>
           </div>
           <div
-            className={`fixed top-[56px] px-[16px] py-[0] w-full h-[160px] bg-[rgb(189,_93,_56)] [transition:height_0.1s] ${
-              isShowSpMenu ? '' : 'h-0 overflow-hidden'
+            className={`fixed top-[56px] px-[16px] py-[0] w-full bg-[rgb(189,_93,_56)] [transition:height_0.1s] ${
+              isShowSpMenu ? 'h-[120px]' : 'h-0 overflow-hidden'
             }`}
           >
             <Menu />
