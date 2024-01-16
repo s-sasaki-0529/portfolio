@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps<RSSFeed> = async () => {
 const OutputCategoryLabel: React.FC<{ name: OutputCategory; isActive: boolean; onClick: () => void }> = props => {
   const activeClass = props.isActive ? 'font-bold underline' : ''
   return (
-    <button className={`mr-[0.5em] ${activeClass}`} onClick={props.onClick}>
+    <button className={`${activeClass}`} onClick={props.onClick}>
       {props.name}
     </button>
   )
@@ -86,7 +86,7 @@ export default function Outputs(props: RSSFeed) {
     <div className="w-full h-full text-[rgb(_52,_58,_64)]">
       <div className="flex justify-start items-baseline mb-[4em]">
         <div className="mr-[0.5em] text-[2rem]">OUTPUTS</div>
-        <div>
+        <div className="flex gap-2">
           {OutputCategories.map(name => (
             <OutputCategoryLabel
               key={name}
