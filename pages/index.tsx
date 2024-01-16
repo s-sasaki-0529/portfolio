@@ -28,7 +28,13 @@ export default function Home() {
    * モバイルのみ表示するユーザーアイコン
    */
   const MobileUserIcon = () => (
-    <Image src="/icon.jpg" alt="icon_shingo_sasaki" className="pc:!hidden rounded-[50%]" width={60} height={60} />
+    <Image
+      src="/icon.jpg"
+      alt="笹木信吾のいつものプロフィールアイコン画像"
+      className="pc:!hidden rounded-[50%]"
+      width={60}
+      height={60}
+    />
   )
 
   return (
