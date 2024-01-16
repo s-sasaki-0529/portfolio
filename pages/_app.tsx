@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
         <nav className="flex flex-col justify-center items-center min-w-[270px] h-dvh bg-[rgb(189,_93,_56)] sp:hidden">
           <Image
             src="/icon.jpg"
-            alt="icon_shingo_sasaki"
+            alt="笹木信吾のいつものプロフィールアイコン画像"
             className="!border-[0.5rem] !border-solid !border-[rgba(255,255,255,0.2)] rounded-[50%]"
             width={160}
             height={160}
