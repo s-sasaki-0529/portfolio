@@ -17,24 +17,24 @@ export default function Experience() {
     return (
       <div className="my-[4rem]">
         <div className="flex justify-between sp:flex-col">
-          <span className="text-[1.5rem] font-semibold text-[rgb(_52,_58,_64)]">{props.company}</span>
-          <span className="text-[rgb(_189,_93,_56)]">{props.period}</span>
+          <span className="text-[1.5rem] font-semibold text-gray-700">{props.company}</span>
+          <span className="text-orange-700">{props.period}</span>
         </div>
         {props.children ? (
           <>
             <button
-              className="text-[1.1rem] text-[rgb(108,117,125)] border-none bg-transparent p-0"
+              className="text-[1.1rem] text-gray-700 border-none bg-transparent p-0"
               onClick={() => setIsShowDescription(!isShowDescription)}
             >
               <span className="mr-[0.5em]">{props.summary}</span>
               <FontAwesomeIcon className="toggleIcon" icon={isShowDescription ? faCaretUp : faCaretDown} />
             </button>
-            <div className="text-[rgb(108,117,125)] text-[0.9rem]">
+            <div className="text-gray-600 text-[0.9rem]">
               <div className={isShowDescription ? '' : 'hidden'}>{props.children}</div>
             </div>
           </>
         ) : (
-          <div className="text-[rgb(108,117,125)] text-[1.1rem]">{props.summary}</div>
+          <div className="text-gray-700 text-[1.1rem]">{props.summary}</div>
         )}
       </div>
     )
@@ -42,7 +42,7 @@ export default function Experience() {
 
   return (
     <div className="w-full h-full">
-      <h1 className="text-[rgb(_52,_58,_64)]">EXPERIENCE</h1>
+      <h1 className="text-[2rem] text-gray-700">EXPERIENCE</h1>
       <ExperienceBlock
         company="4社目: BtoB SaaS スタートアップ ②"
         period="2023/09 ~"

@@ -23,8 +23,8 @@ function MyApp({ Component, pageProps }) {
           <li key={menu} className="h-[40px] font-extrabold list-none no-underline decoration-0 leading-[0]">
             <Link href={`/${menu}`}>
               <a
-                className={`text-[1.1rem] text-[rgba(255,255,255,0.55)] uppercase nonetex ${
-                  menu === currentPageName ? 'text-white underline' : ''
+                className={`text-[1.1rem] text-gray-300 uppercase nonetex ${
+                  menu === currentPageName ? 'text-gray-50 underline' : ''
                 }`}
               >
                 {menu}
@@ -42,11 +42,11 @@ function MyApp({ Component, pageProps }) {
         <Head>
           <title>Shingo Sasaki</title>
         </Head>
-        <nav className="flex flex-col justify-center items-center min-w-[270px] h-dvh bg-[rgb(189,_93,_56)] sp:hidden">
+        <nav className="flex flex-col justify-center items-center min-w-[270px] h-dvh bg-brand sp:hidden">
           <Image
             src="/icon.jpg"
             alt="笹木信吾のいつものプロフィールアイコン画像"
-            className="!border-[0.5rem] !border-solid !border-[rgba(255,255,255,0.2)] rounded-[50%]"
+            className="!border-[0.5rem] rounded-[50%]"
             width={160}
             height={160}
           />
@@ -55,19 +55,19 @@ function MyApp({ Component, pageProps }) {
           </div>
         </nav>
         <nav className="sp-nav pc:hidden fixed left-0 right-0 top-0 z-[100]">
-          <div className="flex justify-between items-center w-dvw h-[56px] py-[8px] px-[16px] bg-[rgb(189,_93,_56)]">
+          <div className="flex justify-between items-center w-dvw h-[56px] py-[8px] px-[16px] bg-brand">
             <h1 className="text-white text-[1.25rem] font-light">Shingo Sasaki</h1>
             <button
               title="メインメニュー"
-              className="w-[56px] h-[40px] bg-transparent border-[1px] border-solid border-[rgba(255,_255,_255,_0.1)] rounded-[0.25em] cursor-pointer p-0"
+              className="w-[56px] h-[40px] bg-transparent border-[1px] rounded-[0.25em] cursor-pointer p-0"
               onClick={() => setIsShowSpMenu(!isShowSpMenu)}
             >
               {' '}
-              <FontAwesomeIcon className="text-[rgba(255,_255,_255,_0.55)]" icon={faBars} />
+              <FontAwesomeIcon className="text-gray-300" icon={faBars} />
             </button>
           </div>
           <div
-            className={`fixed top-[56px] px-[16px] py-[0] w-full bg-[rgb(189,_93,_56)] [transition:height_0.1s] ${
+            className={`fixed top-[56px] px-[16px] py-[0] w-full bg-brand [transition:height_0.1s] ${
               isShowSpMenu ? 'h-[120px]' : 'h-0 overflow-hidden'
             }`}
           >

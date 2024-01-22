@@ -13,13 +13,13 @@ export default function Home() {
   const LinkIcon: React.FC<{ title: string; href: string; icon: ReactNode }> = props => (
     <>
       <a
-        className="flex justify-center items-center bg-[rgb(73,_80,_87)] w-[3em] h-[3em] mr-[24px] rounded-[50%] cursor-pointer hover:bg-[rgb(189,_93,_56)]"
+        className="flex justify-center items-center bg-gray-700 w-[3em] h-[3em] mr-[24px] rounded-[50%] cursor-pointer hover:bg-brand"
         rel="noreferrer"
         target="_blank"
         href={props.href}
         title={props.title}
       >
-        <svg className="fill-[rgb(255,_255,_255)] w-1/2 h-1/2">{props.icon}</svg>
+        <svg className="fill-white w-1/2 h-1/2">{props.icon}</svg>
       </a>
     </>
   )
@@ -41,12 +41,12 @@ export default function Home() {
     <div>
       <div className="sp:flex sp:items-center sp:gap-2">
         <MobileUserIcon />
-        <h1 className="sp:text-[7vw] text-[rgb(52,58,64)] text-[3rem]">笹木 信吾</h1>
-        <h2 className="sp:!hidden text-[rgb(52,58,64)] text-[3rem]">SHINGO SASAKI</h2>
+        <h1 className="sp:text-[7vw] text-gray-800 text-[3rem]">笹木 信吾</h1>
+        <h2 className="sp:!hidden text-gray-800 text-[3rem]">SHINGO SASAKI</h2>
       </div>
-      <div className="pc:text-[1.5rem] sp:text-[4vw] sp:text-right font-normal mb-[50px] text-[rgb(108,117,125)]">
-        <span className="profile">birth in 1992, live in Saitama Japan, </span>
-        <span className="text-[rgb(189,_93,_56)]">shingo.sasaki.0529@gmail.com</span>
+      <div className="pc:text-[1.5rem] sp:text-[4vw] sp:text-right font-normal mb-[50px]">
+        <span className="text-gray-500">birth in 1992, live in Saitama Japan, </span>
+        <span className="text-brand">shingo.sasaki.0529@gmail.com</span>
       </div>
       <div className="mb-[50px]">
         <p className="py-[5px]">Web系エンジニア</p>
