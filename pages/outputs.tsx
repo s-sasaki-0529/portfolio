@@ -38,8 +38,8 @@ function linkList(items: { date: string; title: string; url: string }[]) {
   return (
     <div>
       {items.map(item => (
-        <div key={item.title} className="flex mb-[1em] text-[1rem] cursor-pointer">
-          <div className="sp:hidden mr-[1em]">{new Date(item.date).toISOString().split('T')[0]}</div>
+        <div key={item.title} className="mb-[1em] flex cursor-pointer text-[1rem]">
+          <div className="mr-[1em] sp:hidden">{new Date(item.date).toISOString().split('T')[0]}</div>
           <a className="underline visited:text-blue-700" rel="noreferrer" target="_blank" href={item.url}>
             {item.title}
           </a>
@@ -83,8 +83,8 @@ export default function Outputs(props: RSSFeed) {
   }
 
   return (
-    <div className="w-full h-full text-gray-700">
-      <div className="flex justify-start items-baseline mb-[4em]">
+    <div className="h-full w-full text-gray-700">
+      <div className="mb-[4em] flex items-baseline justify-start">
         <div className="mr-[0.5em] text-[2rem]">OUTPUTS</div>
         <div className="flex gap-2">
           {OutputCategories.map(name => (

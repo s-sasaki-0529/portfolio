@@ -13,13 +13,13 @@ export default function Home() {
   const LinkIcon: React.FC<{ title: string; href: string; icon: ReactNode }> = props => (
     <>
       <a
-        className="flex justify-center items-center bg-gray-700 w-[3em] h-[3em] mr-[24px] rounded-[50%] cursor-pointer hover:bg-brand"
+        className="mr-[24px] flex h-[3em] w-[3em] cursor-pointer items-center justify-center rounded-[50%] bg-gray-700 hover:bg-brand"
         rel="noreferrer"
         target="_blank"
         href={props.href}
         title={props.title}
       >
-        <svg className="fill-white w-1/2 h-1/2">{props.icon}</svg>
+        <svg className="h-1/2 w-1/2 fill-white">{props.icon}</svg>
       </a>
     </>
   )
@@ -31,7 +31,7 @@ export default function Home() {
     <Image
       src="/icon.jpg"
       alt="笹木信吾のいつものプロフィールアイコン画像"
-      className="pc:!hidden rounded-[50%]"
+      className="rounded-[50%] pc:!hidden"
       width={60}
       height={60}
     />
@@ -41,10 +41,10 @@ export default function Home() {
     <div>
       <div className="sp:flex sp:items-center sp:gap-2">
         <MobileUserIcon />
-        <h1 className="sp:text-[7vw] text-gray-800 text-[3rem]">笹木 信吾</h1>
-        <h2 className="sp:!hidden text-gray-800 text-[3rem]">SHINGO SASAKI</h2>
+        <h1 className="text-[3rem] text-gray-800 sp:text-[7vw]">笹木 信吾</h1>
+        <h2 className="text-[3rem] text-gray-800 sp:!hidden">SHINGO SASAKI</h2>
       </div>
-      <div className="pc:text-[1.5rem] sp:text-[4vw] sp:text-right font-normal mb-[50px]">
+      <div className="mb-[50px] font-normal sp:text-right sp:text-[4vw] pc:text-[1.5rem]">
         <span className="text-gray-500">birth in 1992, live in Saitama Japan, </span>
         <span className="text-brand">shingo.sasaki.0529@gmail.com</span>
       </div>

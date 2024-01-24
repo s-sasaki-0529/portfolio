@@ -23,25 +23,25 @@ export default function Experience() {
         {props.children ? (
           <>
             <button
-              className="text-[1.1rem] text-gray-700 border-none bg-transparent p-0"
+              className="border-none bg-transparent p-0 text-[1.1rem] text-gray-700"
               onClick={() => setIsShowDescription(!isShowDescription)}
             >
               <span className="mr-[0.5em]">{props.summary}</span>
               <FontAwesomeIcon className="toggleIcon" icon={isShowDescription ? faCaretUp : faCaretDown} />
             </button>
-            <div className="text-gray-600 text-[0.9rem]">
+            <div className="text-[0.9rem] text-gray-600">
               <div className={isShowDescription ? '' : 'hidden'}>{props.children}</div>
             </div>
           </>
         ) : (
-          <div className="text-gray-700 text-[1.1rem]">{props.summary}</div>
+          <div className="text-[1.1rem] text-gray-700">{props.summary}</div>
         )}
       </div>
     )
   }
 
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       <h1 className="text-[2rem] text-gray-700">EXPERIENCE</h1>
       <ExperienceBlock
         company="4社目: BtoB SaaS スタートアップ ②"

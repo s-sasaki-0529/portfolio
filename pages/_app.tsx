@@ -16,10 +16,10 @@ const MenuItemList: React.FC<{ currentPageName: string }> = props => {
   return (
     <ul className="p-0">
       {itemList.map(item => (
-        <li key={item} className="h-[40px] font-extrabold list-none no-underline decoration-0 leading-[0]">
+        <li key={item} className="h-[40px] list-none font-extrabold leading-[0] no-underline decoration-0">
           <Link href={`/${item}`}>
             <a
-              className={`text-[1.1rem] text-gray-300 uppercase nonetex ${
+              className={`nonetex text-[1.1rem] uppercase text-gray-300 ${
                 props.currentPageName === item ? 'text-gray-50 underline' : ''
               }`}
             >
@@ -47,11 +47,11 @@ function MyApp({ Component, pageProps }) {
         <Head>
           <title>Shingo Sasaki</title>
         </Head>
-        <nav className="flex flex-col justify-center items-center gap-5 min-w-[270px] h-dvh bg-brand sp:hidden">
+        <nav className="flex h-dvh min-w-[270px] flex-col items-center justify-center gap-5 bg-brand sp:hidden">
           <Image
             src="/icon.jpg"
             alt="笹木信吾のいつものプロフィールアイコン画像"
-            className="!border-[0.5rem] rounded-[50%]"
+            className="rounded-[50%] !border-[0.5rem]"
             width={160}
             height={160}
           />
@@ -59,12 +59,12 @@ function MyApp({ Component, pageProps }) {
             <MenuItemList currentPageName={currentPageName} />
           </div>
         </nav>
-        <nav className="sp-nav pc:hidden fixed left-0 right-0 top-0 z-[100]">
-          <div className="flex justify-between items-center w-dvw h-[56px] py-[8px] px-[16px] bg-brand">
-            <h1 className="text-white text-[1.25rem] font-light">Shingo Sasaki</h1>
+        <nav className="sp-nav fixed left-0 right-0 top-0 z-[100] pc:hidden">
+          <div className="flex h-[56px] w-dvw items-center justify-between bg-brand px-[16px] py-[8px]">
+            <h1 className="text-[1.25rem] font-light text-white">Shingo Sasaki</h1>
             <button
               title="メインメニュー"
-              className="w-[56px] h-[40px] bg-transparent border-[1px] rounded-[0.25em] cursor-pointer p-0"
+              className="h-[40px] w-[56px] cursor-pointer rounded-[0.25em] border-[1px] bg-transparent p-0"
               onClick={() => setIsShowSpMenu(!isShowSpMenu)}
             >
               {' '}
@@ -72,14 +72,14 @@ function MyApp({ Component, pageProps }) {
             </button>
           </div>
           <div
-            className={`fixed top-[56px] px-[16px] py-[0] w-full bg-brand [transition:height_0.1s] ${
+            className={`fixed top-[56px] w-full bg-brand px-[16px] py-[0] [transition:height_0.1s] ${
               isShowSpMenu ? 'h-[120px]' : 'h-0 overflow-hidden'
             }`}
           >
             <MenuItemList currentPageName={currentPageName} />
           </div>
         </nav>
-        <main className="pc:flex pc:items-center pc:w-full pc:h-dvh pc:overflow-y-auto pc:py-[5rem] pc:px-[3rem] sp:w-dvw sp:mt-[56px] sp:text-[calc(0.5rem+1.5vw)] sp:p-[2em] sp:min-h-[calc(100vh-56px)]">
+        <main className="sp:mt-[56px] sp:min-h-[calc(100vh-56px)] sp:w-dvw sp:p-[2em] sp:text-[calc(0.5rem+1.5vw)] pc:flex pc:h-dvh pc:w-full pc:items-center pc:overflow-y-auto pc:px-[3rem] pc:py-[5rem]">
           <Component {...pageProps} />
         </main>
       </div>
