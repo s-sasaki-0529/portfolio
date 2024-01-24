@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import RSSParser from 'rss-parser'
 
 const OutputCategories = ['Medium', 'Zenn', 'SlideShare'] as const
-type OutputCategory = typeof OutputCategories[number]
+type OutputCategory = (typeof OutputCategories)[number]
 
 type RSSFeed = {
   zenn: RSSParser.Item[]
