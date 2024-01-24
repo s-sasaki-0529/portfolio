@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write pages/* components/*",
     "e2e": "playwright test --workers 8",
     "lint:html": "markuplint components/* pages/*"
   },
