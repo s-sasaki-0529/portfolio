@@ -1,6 +1,6 @@
 # Portfolio
 
-https://portfolio-ler2fp0pw-s-sasaki-0529.vercel.app/
+https://portfolio-s-sasaki-0529.vercel.app/
 
 ## Development
 
