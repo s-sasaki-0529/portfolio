@@ -11,8 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write pages/* components/*",
-    "e2e": "playwright test --workers 8",
-    "lint:html": "markuplint components/* pages/*"
+    "e2e": "playwright test --workers 8"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
@@ -24,8 +23,6 @@
     "rss-parser": "^3.12.0"
   },
   "devDependencies": {
-    "@markuplint/jsx-parser": "^3.12.0",
-    "@markuplint/react-spec": "^3.13.0",
     "@playwright/test": "^1.40.1",
     "@types/node": "^20.0.0",
     "@types/react": "^18.0.18",
@@ -33,7 +30,6 @@
     "babel-plugin-inline-react-svg": "^2.0.1",
     "eslint": "^8.23.0",
     "eslint-config-next": "^12.2.5",
-    "markuplint": "^3.15.0",
     "postcss": "^8.4.33",
     "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
