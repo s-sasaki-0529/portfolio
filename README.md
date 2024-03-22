@@ -7,13 +7,13 @@ https://portfolio-s-sasaki-0529.vercel.app/
 install
 
 ```bash
-$ yarn install
+$ pnpm install
 ```
 
 start dev server
 
 ```bash
-$ yarn dev
+$ pnpm dev
 ```
 
 ## Deployment
