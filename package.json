@@ -2,6 +2,9 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "20.11.1"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -24,7 +27,7 @@
     "@markuplint/jsx-parser": "^3.12.0",
     "@markuplint/react-spec": "^3.13.0",
     "@playwright/test": "^1.40.1",
-    "@types/node": "^18.7.16",
+    "@types/node": "^20.0.0",
     "@types/react": "^18.0.18",
     "autoprefixer": "^10.4.16",
     "babel-plugin-inline-react-svg": "^2.0.1",
